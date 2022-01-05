@@ -1,0 +1,16 @@
+/*@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=fallback');*/
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import 'additional-styles/utility-patterns.scss';
+@import 'additional-styles/range-slider.scss';
+@import 'additional-styles/toggle-switch.scss';
+@import 'additional-styles/flatpickr.scss';
+@import 'additional-styles/theme.scss';
+
+body {
+    font-family: 'Inter', sans-serif;
+}
