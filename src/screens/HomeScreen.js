@@ -1,4 +1,8 @@
 import React from 'react'
+import LatestOrder from '../partials/dashboard/LatestOrder'
+import SaleReport from '../partials/dashboard/SaleReport'
+import StockReport from '../partials/dashboard/StockReport'
+import TopSeller from '../partials/dashboard/TopSeller'
 import WelcomeBanner from '../partials/WelcomeBanner'
 import ScreenContainer from './ScreenContainer'
 
@@ -73,6 +77,19 @@ function HomeScreen() {
                         <div className="text-base text-gray-600 mt-1">Unique Visitors</div>
                     </div>
                 </div>
+
+                {/* Sales Report */}
+                <SaleReport />
+
+                {/* Top Selling Product */}
+                <TopSeller />
+
+                {/* Stock Report */}
+                <StockReport />
+
+                {/* Product Order */}
+                <LatestOrder />
+
             </div>
         </ScreenContainer>
     )
