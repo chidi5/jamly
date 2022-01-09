@@ -17,6 +17,7 @@ module.exports = {
         gray: colors.slate,
         'light-blue': colors.sky,
         red: colors.rose,
+        'teal-950': '#008060',
       },
       fontFamily: {
         inter: ['Inter']
@@ -41,6 +42,9 @@ module.exports = {
       },
       borderWidth: {
         3: '3px',
+      },
+      width: {
+        98: '28rem',
       },
       minWidth: {
         36: '9rem',
