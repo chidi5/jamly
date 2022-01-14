@@ -12,10 +12,8 @@ function StoreLogin() {
     const navigate = useNavigate()
 
     useEffect(() => {
-        //document.body.style.backgroundColor='#008060'
         document.body.style.backgroundImage=`url(${Background})`
         return() => {
-            //document.body.style.backgroundColor='rgb(241 245 249)'
             document.body.style.backgroundImage= 'none'
         }
     }, []); // triggered on route change
