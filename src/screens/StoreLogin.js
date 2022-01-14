@@ -34,7 +34,7 @@ function StoreLogin() {
 
     return (
         <div className='flex flex-col justify-center items-center h-screen px-6'>
-            <div className={"bg-white rounded-xl shadow-md relative overflow-hidden w-768 max-w-full min-h-48 " + (pathname==='/get-started' ? 'right-panel-active' : '')} id="container">
+            <div id="container" className={"bg-white rounded-xl shadow-md relative overflow-hidden w-768 max-w-full min-h-48 " + (pathname==='/get-started' ? 'right-panel-active' : '')}>
                 <div className="form-container z-10 xl:w-3/6 w-full sign-up-container">
                     <form onSubmit={submitHandler} className='bg-white h-full flex-col flex justify-center xl:px-12 px-7'>
                         <h2 className="m-0 font-bold text-2xl text-gray-900">Create Account</h2>
