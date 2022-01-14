@@ -2,17 +2,22 @@ import React, { useState, useEffect } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import Background from '../static/images/background.svg'
 
-function StoreLogin() {
-
+function StoreLogin({
+    signUp,
+    setSignUp,
+}) {
+    
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
-    const container = document.getElementById('container')
+    //const [signUp, setSignUp] = useState(false);
+    //const container = document.getElementById('container')
 
     const { pathname } = useLocation()
     const navigate = useNavigate()
 
     useEffect(() => {
         document.body.style.backgroundImage=`url(${Background})`
+    
         return() => {
             document.body.style.backgroundImage= 'none'
         }
@@ -24,18 +29,10 @@ function StoreLogin() {
         navigate('/admin')
     }
 
-    const signUp = (e) => {
-        container.classList.add("right-panel-active");
-    }
-    
-    const signIn = (e) => {
-        container.classList.remove("right-panel-active");
-    }
-
     return (
         <div className='flex flex-col justify-center items-center h-screen px-6'>
-            <div id="container" className={"bg-white rounded-xl shadow-md relative overflow-hidden w-768 max-w-full min-h-48 " + (pathname==='/get-started' ? 'right-panel-active' : '')}>
-                <div className="form-container z-10 xl:w-3/6 w-full sign-up-container">
+            <div id="container" className={"bg-white rounded-xl shadow-md relative overflow-hidden w-768 max-w-full min-h-48 " + (signUp ? 'right-panel-active' : '') }>
+                <div className={"form-container z-10 xl:w-3/6 w-full sign-up-container " + (pathname === '/get-started' ? 'xl:w-full max-screen' : 'xl:block')}>
                     <form onSubmit={submitHandler} className='bg-white h-full flex-col flex justify-center xl:px-12 px-7'>
                         <h2 className="m-0 font-bold text-2xl text-gray-900">Create Account</h2>
                         <p className="leading-5 tracking-wide font-medium text-xs text-gray-800 my-3">Create your store and get started</p>
@@ -52,7 +49,7 @@ function StoreLogin() {
                         <div className="xl:hidden text-xs font-medium text-gray-500 pt-2">
                             <span>
                                 Already a member?
-                                <Link to="#" className="text-teal-951 hover:border-teal-950 pl-1" onClick={signIn}>
+                                <Link to="#" className="text-teal-951 hover:border-teal-950 pl-1" onClick={() => setSignUp(!signUp)}>
                                     Sign In
                                 </Link>
                             </span>
@@ -70,7 +67,7 @@ function StoreLogin() {
                         <div className="xl:hidden text-xs font-medium text-gray-500 pt-2">
                             <span>
                                 Not a member?
-                                <Link to='#' className="text-teal-951 hover:border-teal-950 pl-1" onClick={signUp}>
+                                <Link to='#' className="text-teal-951 hover:border-teal-950 pl-1" onClick={() =>setSignUp(!signUp)}>
                                     Get started
                                 </Link> 
                             </span>
@@ -79,15 +76,15 @@ function StoreLogin() {
                 </div>
                 <div className="z-60 hidden xl:block overlay-container">
                     <div className="overlay relative -left-full text-white h-full">
-                        <div className="overlay-panel overlay-left">
+                        <div className="overlay-panel overlay-left ">
                             <h1 className='font-bold text-3xl m-0'>Welcome Back!</h1>
                             <p className='leading-5 tracking-wide text-xs my-3'>To keep connected, Login to see what you've missed</p>
-                            <button className="bg-transparent border-white border rounded py-3 px-11 text-sm w-full" id="signIn" onClick={signIn}>Sign In</button>
+                            <button className="bg-transparent border-white border rounded py-3 px-11 text-sm w-full" id="signIn" onClick={() => setSignUp(!signUp)}>Sign In</button>
                         </div>
                         <div className="overlay-panel overlay-right">
                             <h1 className='font-bold text-3xl m-0'>Hello, Jamlies!</h1>
                             <p className='leading-5 tracking-wide text-xs my-3'>Enter your details and start your journey with us</p>
-                            <button className="bg-transparent border-white border rounded py-3 px-11 text-sm w-full" id="signUp" onClick={signUp}>Sign Up</button>
+                            <button className="bg-transparent border-white border rounded py-3 px-11 text-sm w-full" id="signUp" onClick={() =>setSignUp(!signUp)}>Sign Up</button>
                         </div>
                     </div>
                 </div>

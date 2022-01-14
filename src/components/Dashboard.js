@@ -8,7 +8,9 @@ import StoreLogin from '../screens/StoreLogin';
 
 function Dashboard() {
 
+    const signIn = true
     const [sidebarOpen, setSidebarOpen] = useState(false);
+    const [signUp, setSignUp] = useState(false);
     const { pathname } = useLocation()
     const exclusionArray = [
         '/',
@@ -30,8 +32,8 @@ function Dashboard() {
                         <Route path="" element={<HomeScreen />} />
                     </Route>
                     <Route path="/" element={<Landing />} exact />
-                    <Route path="store-login/" element={<StoreLogin />} exact />
-                    <Route path="get-started/" element={<StoreLogin />} exact />
+                    <Route path="store-login/" element={<StoreLogin signUp={signUp} setSignUp={setSignUp} />} exact />
+                    <Route path="get-started/" element={<StoreLogin signUp={signIn} setSignUp={setSignUp} />} exact />
                 </Routes>
 
             </div>
