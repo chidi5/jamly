@@ -18,6 +18,8 @@ module.exports = {
         'light-blue': colors.sky,
         red: colors.rose,
         'teal-950': '#008060',
+        'teal-951': '#084c3f',
+        'gray-910': '#eeeeee',
       },
       fontFamily: {
         inter: ['Inter']
@@ -45,6 +47,7 @@ module.exports = {
       },
       width: {
         98: '28rem',
+        768: '768px',
       },
       minWidth: {
         36: '9rem',
@@ -57,6 +60,9 @@ module.exports = {
       maxWidth: {
         '8xl': '88rem',
         '9xl': '96rem',
+      },
+      minHeight: {
+        48: '480px',
       },
       zIndex: {
         60: '60',
