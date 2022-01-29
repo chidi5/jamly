@@ -9,7 +9,7 @@ import SubDomainApp from './SubDomainApp'
 import reportWebVitals from './reportWebVitals';
 
 const host = window.location.host.split(".");
-if(host.length >= 2){
+if(host.length >= 4){
   const subDomain = host[0];
   ReactDOM.render(
     <Provider store={store}>
