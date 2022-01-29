@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import Hero from '../static/images/hero.png'
+import Hero from '../../static/images/hero.png'
 
 function Landing() {
     const navigate = useNavigate()
@@ -31,7 +31,7 @@ function Landing() {
                     </div>
                 </nav>
             </header>
-            <main className='min-h-full'>
+            <main>
                 <section className='welcome'>
                     <div className='text-center pb-3 pt-16 px-4'>
                         <h1 className='font-bold text-white xl:text-6xl text-3xl pb-3'>Sell online with Jamly</h1>
@@ -47,7 +47,7 @@ function Landing() {
                     <div className='px-4 pt-8'>
                         <div className='flex justify-center text-center'>
                             <picture>
-                                <img src={Hero} className='w-full object-cover md:h-full md:w-98' alt="hero" />
+                                <img src={Hero} className='w-full object-cover md:h-full md:w-96' alt="hero" />
                             </picture>
                         </div>
                     </div>

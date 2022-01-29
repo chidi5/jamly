@@ -69,13 +69,13 @@ function StockReport() {
                                     {stock.status === 'In Stock' ? 
                                         <td className="p-2 whitespace-nowrap">
                                             <div className="flex items-center">
-                                                <div class="py-1 px-2 rounded-full bg-green-200 text-green-800 cursor-pointer font-medium"> {stock.status} </div>
+                                                <div className="py-1 px-2 rounded-full bg-green-200 text-green-800 cursor-pointer font-medium"> {stock.status} </div>
                                             </div>
                                         </td> 
                                         :
                                         <td className="p-2 whitespace-nowrap">
                                             <div className="flex items-center">
-                                                <div class="py-1 px-2 rounded-full bg-red-200 text-red-800 backdrop-blur-sm cursor-pointer font-medium"> {stock.status} </div>
+                                                <div className="py-1 px-2 rounded-full bg-red-200 text-red-800 backdrop-blur-sm cursor-pointer font-medium"> {stock.status} </div>
                                             </div>
                                         </td>
                                     }

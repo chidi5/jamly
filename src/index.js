@@ -1,16 +1,30 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux'
+import store from './store'
 import './css/index.css';
 import './charts/ChartjsConfig';
 import App from './App';
+import SubDomainApp from './SubDomainApp'
 import reportWebVitals from './reportWebVitals';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+const host = window.location.host.split(".");
+if(host.length >= 2){
+  const subDomain = host[0];
+  ReactDOM.render(
+    <Provider store={store}>
+      <SubDomainApp subDomain={subDomain} />
+    </Provider>,
+    document.getElementById('root')
+  );
+}else{
+  ReactDOM.render(
+    <Provider store={store}>
+      <App />
+    </Provider>,
+    document.getElementById('root')
+  );
+}
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

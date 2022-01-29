@@ -1,4 +1,6 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { useNavigate, useLocation } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
 import LatestOrder from '../partials/dashboard/LatestOrder'
 import SaleReport from '../partials/dashboard/SaleReport'
 import StockReport from '../partials/dashboard/StockReport'
@@ -7,6 +9,31 @@ import WelcomeBanner from '../partials/WelcomeBanner'
 import ScreenContainer from './ScreenContainer'
 
 function HomeScreen() {
+
+    const navigate = useNavigate ()
+    const { search } = useLocation()
+    const dispatch = useDispatch()
+    
+    const userInUrl = new URLSearchParams(search).get("user")
+    localStorage.userInfo = userInUrl ? userInUrl : null
+
+    const userLogin = useSelector(state => state.userLogin)
+    const { userInfo } = userLogin
+    console.log(userInfo)
+    
+
+    useEffect(() => {
+        if (userInfo && userInfo.user_details.is_merchant && userInfo.user_details.profile_complete) {
+            //dispatch(listOrders())
+            console.log('good to go')
+        } else {
+            //navigate('/admin/account-setup')
+            console.log('e no work')
+        }
+
+    }, [userInfo, navigate])
+
+
     return (
         <ScreenContainer>
             <WelcomeBanner />

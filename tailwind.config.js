@@ -20,6 +20,9 @@ module.exports = {
         'teal-950': '#008060',
         'teal-951': '#084c3f',
         'gray-910': '#eeeeee',
+        'gray-911': '#f8f8f8',
+        'darker-gray': '#2d2d2d',
+        'dark-gray': '#525050'
       },
       fontFamily: {
         inter: ['Inter']
@@ -65,6 +68,8 @@ module.exports = {
       },
       minHeight: {
         48: '480px',
+        50: '500px',
+        72: '720px',
       },
       zIndex: {
         60: '60',

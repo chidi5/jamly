@@ -1,8 +1,8 @@
 import React from 'react'
-import LineChart from '../../charts/LineChart';
+import LineChart from '../../../charts/LineChart';
 
 // Import utilities
-import { tailwindConfig } from '../../utils/Utils';
+import { tailwindConfig } from '../../../utils/Utils';
 
 function SaleReport() {
     const chartData = {

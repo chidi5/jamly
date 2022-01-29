@@ -1,6 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
-import Background from '../static/images/background.svg'
+import { useDispatch, useSelector } from 'react-redux'
+import Background from '../../static/images/background.svg'
+import Message from '../components/Message'
+
+import { register } from '../../actions/user'
+import { login } from '../../actions/user'
 
 function StoreLogin({
     signUp,
@@ -9,37 +14,90 @@ function StoreLogin({
     
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
-    //const [signUp, setSignUp] = useState(false);
-    //const container = document.getElementById('container')
+    const [confirmPassword, setConfirmPassword] = useState('')
+    const [store_name, setStoreName] = useState('')
+    const [store_domain, setStoreDomain] = useState('')
+    const [message, setMessage] = useState('')
 
-    const { pathname } = useLocation()
-    const navigate = useNavigate()
+    const dispatch = useDispatch()
+    const { pathname, search } = useLocation()
+    //const navigate = useNavigate ()
+
+    const userRegister = useSelector(state => state.userRegister)
+    const { error, loading, userInfo: userInfoReg } = userRegister
+
+    const userLogin = useSelector(state => state.userLogin)
+    const { error: errorLogin, loading: loadingLogin, userInfo } = userLogin
+    
+    //const redirect = search ? search.split('=')[1] : '/'
 
     useEffect(() => {
+        
+        if (userInfo) {
+            if (userInfo.user_details.profile_complete) {
+                window.location.assign(`${window.location.protocol}//${userInfo.store_details.sub_domain}.${window.location.host}/admin?user=${JSON.stringify(userInfo)}`)
+                //navigate(redirect)
+                //console.log('enter')
+            }else {
+                const domain = userInfo.store_details.sub_domain
+                //console.log(domain)
+                window.location.assign(`${window.location.protocol}//${domain}.${window.location.host}/admin/account-setup?user=${JSON.stringify(userInfo)}`) 
+            } 
+        }
+
+        if (userInfoReg) {
+            if (userInfoReg.user_details.profile_complete) {
+                window.location.assign(`${window.location.protocol}//${userInfoReg.store_details.sub_domain}.${window.location.host}/admin?user=${JSON.stringify(userInfoReg)}`)
+                //navigate(redirect)
+                //console.log('enter')
+            }else {
+                const domain = userInfoReg.store_details.sub_domain
+                //console.log(domain)
+                window.location.assign(`${window.location.protocol}//${domain}.${window.location.host}/admin/account-setup?user=${JSON.stringify(userInfoReg)}`) 
+            } 
+        }
+        
         document.body.style.backgroundImage=`url(${Background})`
-    
+
         return() => {
             document.body.style.backgroundImage= 'none'
         }
-    }, []); // triggered on route change
+    }, [userInfo, userInfoReg]); // triggered on route change
+
 
     const submitHandler = (e) => {
         e.preventDefault()
-        console.log("Submit")
-        navigate('/admin')
+        dispatch(login(email, password))
+        console.log(email, password)
+    }
+
+    const submitRegHandler = (e) => {
+        e.preventDefault()
+
+        if (password !== confirmPassword) {
+            setMessage('Passwords do not match')
+        } else {
+            dispatch(register(email, password, store_name, store_domain))
+            console.log(email, password, store_domain, store_name)
+        }
     }
 
     return (
         <div className='flex flex-col justify-center items-center h-screen px-6'>
-            <div id="container" className={"bg-white rounded-xl shadow-md relative overflow-hidden w-768 max-w-full min-h-48 " + (signUp ? 'right-panel-active' : '') }>
-                <div className={"form-container z-10 xl:w-3/6 w-full sign-up-container " + (pathname === '/get-started' ? 'xl:w-full max-screen' : 'xl:block')}>
-                    <form onSubmit={submitHandler} className='bg-white h-full flex-col flex justify-center xl:px-12 px-7'>
+            {message && <Message variant='red'>{message}</Message>}
+            {error && <Message variant='red'>{error}</Message>}
+            {errorLogin && <Message variant='red'>{errorLogin}</Message>}
+            <div id="container" className={`bg-white rounded-xl shadow-md relative overflow-hidden w-768 max-w-full min-h-50 ${signUp ? 'right-panel-active' : ''}`}>
+                <div className={`form-container z-10 xl:w-3/6 w-full sign-up-container ${pathname === '/get-started' ? 'xl:w-full max-screen' : 'xl:block'}`}>
+                    <form onSubmit={submitRegHandler} className='bg-white h-full flex-col flex justify-center xl:px-12 px-7'>
                         <h2 className="m-0 font-bold text-2xl text-gray-900">Create Account</h2>
-                        <p className="leading-5 tracking-wide font-medium text-xs text-gray-800 my-3">Create your store and get started</p>
-                        <input type="email" className='bg-gray-910 border-0 focus:ring-2 focus:ring-teal-951 focus:rounded-md text-sm px-4 w-full my-2' placeholder="Email" required />
-                        <input type="password" className='bg-gray-910 border-0 focus:ring-2 focus:ring-teal-951 focus:rounded-md text-sm px-4 w-full my-2' placeholder="Password" required />
+                        <p className="leading-5 tracking-wide font-medium text-xs text-gray-800 my-2">Create your store and get started</p>
+                        <input type="email" className='bg-gray-910 border-0 focus:ring-2 focus:ring-teal-951 focus:rounded-md text-sm px-4 w-full my-2' placeholder="Email" required value={email} onChange={(e) => setEmail(e.target.value)} />
+                        <input type="password" className='bg-gray-910 border-0 focus:ring-2 focus:ring-teal-951 focus:rounded-md text-sm px-4 w-full my-2' placeholder="Password" required value={password} onChange={(e) => setPassword(e.target.value)} />
+                        <input type="password" className='bg-gray-910 border-0 focus:ring-2 focus:ring-teal-951 focus:rounded-md text-sm px-4 w-full my-2' placeholder="Confirm Password" required value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} />
+                        <input type="text" className='bg-gray-910 border-0 focus:ring-2 focus:ring-teal-951 focus:rounded-md text-sm px-4 w-full my-2' placeholder="Store name" required value={store_name} onChange={(e) => setStoreName(e.target.value)} />
                         <div className='relative flex'>
-                            <input type="text" className='flex-1 bg-gray-910 border-0 focus:ring-2 focus:ring-inset focus:ring-teal-951 focus:rounded-md text-sm px-4 w-full my-2 pr-3' placeholder="Your store name" required />
+                            <input type="text" className='flex-1 bg-gray-910 border-0 focus:ring-2 focus:ring-inset focus:ring-teal-951 focus:rounded-md text-sm px-4 w-full my-2 pr-3' placeholder="Your store domain" required value={store_domain} onChange={(e) => setStoreDomain(e.target.value.replace(/[^a-zA-Z]/g, "").toLowerCase())} />
                             <span className='my-2 px-2 py-2 bg-gray-910 sm:text-sm'>.jamly.com</span>
                         </div>
                         <p className="leading-5 tracking-wide font-medium text-xs text-gray-800 my-3">By proceeding, you agree with our

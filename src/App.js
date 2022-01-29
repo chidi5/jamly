@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router} from 'react-router-dom'
-import Dashboard from './components/Dashboard';
+import Dashboard from './Home/components/Dashboard';
 
 import './charts/ChartjsConfig';
 
