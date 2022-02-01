@@ -28,30 +28,27 @@ function StoreLogin({
     const userLogin = useSelector(state => state.userLogin)
     const { error: errorLogin, loading: loadingLogin, userInfo } = userLogin
 
-    
-    //const redirect = search ? search.split('=')[1] : '/'
-
     useEffect(() => {
         
         if (userInfo) {
             if (userInfo.user_details.profile_complete) {
-                window.location.assign(`${window.location.protocol}//${userInfo.store_details.sub_domain}.${window.location.host}/admin`)
+                //window.location.assign(`${window.location.protocol}//${userInfo.store_details.sub_domain}.${window.location.host}/admin`)
                 //navigate(redirect)
             }else {
                 const domain = userInfo.store_details.sub_domain
-                window.location.assign(`${window.location.protocol}//${domain}.${window.location.host}/admin/account-setup`) 
+                //window.location.assign(`${window.location.protocol}//${domain}.${window.location.host}/admin/account-setup`) 
             } 
         }
 
         if (userInfoReg) {
             if (userInfoReg.user_details.profile_complete) {
-                window.location.assign(`${window.location.protocol}//${userInfoReg.store_details.sub_domain}.${window.location.host}/admin`)
+                //window.location.assign(`${window.location.protocol}//${userInfoReg.store_details.sub_domain}.${window.location.host}/admin`)
                 //navigate(redirect)
                 //console.log('enter')
             }else {
                 const domain = userInfoReg.store_details.sub_domain
                 //console.log(domain)
-                window.location.assign(`${window.location.protocol}//${domain}.${window.location.host}/admin/account-setup`) 
+                //window.location.assign(`${window.location.protocol}//${domain}.${window.location.host}/admin/account-setup`) 
             } 
         }
         
