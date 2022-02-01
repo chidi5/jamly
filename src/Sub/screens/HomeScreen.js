@@ -19,7 +19,7 @@ function HomeScreen() {
     //const { search } = useLocation()
     const dispatch = useDispatch()
 
-    const cookie = Cookies.get('userInfo', { path: '/', domain: ".localhost.me" })
+    const cookie = Cookies.get('userInfo', { path: '/', domain: ".gracious-leakey-289362.netlify.app" })
     localStorage.userInfo = cookie ? cookie : null
 
     const userLogin = useSelector(state => state.userLogin)
