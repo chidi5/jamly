@@ -14,8 +14,8 @@ function Dashboard() {
             <div className="relative flex flex-col flex-1 overflow-y-auto overflow-x-hidden">
                 <Routes>
                     <Route path="/" element={<Landing />} exact />
-                    <Route path="store-login/" element={<StoreLogin signUp={signUp} setSignUp={setSignUp} />} exact />
-                    <Route path="get-started/" element={<StoreLogin signUp={!signUp} setSignUp={setSignUp} />} exact />
+                    <Route path="store_login/" element={<StoreLogin signUp={signUp} setSignUp={setSignUp} />} exact />
+                    <Route path="get_started/" element={<StoreLogin signUp={!signUp} setSignUp={setSignUp} />} exact />
                 </Routes>
 
             </div>
