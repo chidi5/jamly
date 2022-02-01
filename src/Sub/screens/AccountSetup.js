@@ -1,8 +1,10 @@
 import React, { Fragment, useState, useEffect } from 'react'
-import { useNavigate, useLocation } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import Message from '../../Home/components/Message'
 import { accountComplete } from '../../actions/user'
+import Cookies from 'js-cookie'
+
 
 function AccountSetup() {
     
@@ -17,21 +19,18 @@ function AccountSetup() {
     const [account_number, setAccount] = useState('')
 
     const navigate = useNavigate ()
-    const { search } = useLocation()
+    //const { search } = useLocation()
 
     const dispatch = useDispatch()
 
     const userAccount = useSelector(state => state.userAccount)
     const { error, message } = userAccount
 
-    const userInUrl = new URLSearchParams(search).get("user")
-    localStorage.userInfo = userInUrl ? userInUrl : null
+    const cookie = Cookies.get('userInfo', { path: '/', domain: ".localhost.me" })
+    localStorage.userInfo = cookie ? cookie : null
 
     const userLogin = useSelector(state => state.userLogin)
     const { userInfo } = userLogin
-    localStorage.userInfo = userInfo;
-
-    console.log(userInfo)
 
     /*const paramsMatch = window.location.href.match(/\?.+/);
 

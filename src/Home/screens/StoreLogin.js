@@ -3,7 +3,6 @@ import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import Background from '../../static/images/background.svg'
 import Message from '../components/Message'
-
 import { register } from '../../actions/user'
 import { login } from '../../actions/user'
 
@@ -28,6 +27,7 @@ function StoreLogin({
 
     const userLogin = useSelector(state => state.userLogin)
     const { error: errorLogin, loading: loadingLogin, userInfo } = userLogin
+
     
     //const redirect = search ? search.split('=')[1] : '/'
 
@@ -35,25 +35,23 @@ function StoreLogin({
         
         if (userInfo) {
             if (userInfo.user_details.profile_complete) {
-                window.location.assign(`${window.location.protocol}//${userInfo.store_details.sub_domain}.${window.location.host}/admin?user=${JSON.stringify(userInfo)}`)
+                window.location.assign(`${window.location.protocol}//${userInfo.store_details.sub_domain}.${window.location.host}/admin`)
                 //navigate(redirect)
-                //console.log('enter')
             }else {
                 const domain = userInfo.store_details.sub_domain
-                //console.log(domain)
-                window.location.assign(`${window.location.protocol}//${domain}.${window.location.host}/admin/account-setup?user=${JSON.stringify(userInfo)}`) 
+                window.location.assign(`${window.location.protocol}//${domain}.${window.location.host}/admin/account-setup`) 
             } 
         }
 
         if (userInfoReg) {
             if (userInfoReg.user_details.profile_complete) {
-                window.location.assign(`${window.location.protocol}//${userInfoReg.store_details.sub_domain}.${window.location.host}/admin?user=${JSON.stringify(userInfoReg)}`)
+                window.location.assign(`${window.location.protocol}//${userInfoReg.store_details.sub_domain}.${window.location.host}/admin`)
                 //navigate(redirect)
                 //console.log('enter')
             }else {
                 const domain = userInfoReg.store_details.sub_domain
                 //console.log(domain)
-                window.location.assign(`${window.location.protocol}//${domain}.${window.location.host}/admin/account-setup?user=${JSON.stringify(userInfoReg)}`) 
+                window.location.assign(`${window.location.protocol}//${domain}.${window.location.host}/admin/account-setup`) 
             } 
         }
         
