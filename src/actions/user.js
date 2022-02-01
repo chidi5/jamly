@@ -46,7 +46,7 @@ export const login = (email, password) => async (dispatch) => {
         })
 
         localStorage.setItem('userInfo', JSON.stringify(data))
-        Cookies.set('userInfo', JSON.stringify(data), { path: '/', domain: ".jamlie.netlify.app" });
+        Cookies.set('userInfo', JSON.stringify(data), { path: '/', domain: ".jamlie.herokuapp.com" });
 
     } catch (error) {
         dispatch({
@@ -61,7 +61,7 @@ export const login = (email, password) => async (dispatch) => {
 
 export const logout = () => (dispatch) => {
     localStorage.removeItem('userInfo')
-    Cookies.remove('userInfo', { path: '/',  domain: '.jamlie.netlify.app' });
+    Cookies.remove('userInfo', { path: '/',  domain: '.jamlie.herokuapp.com' });
     dispatch({ type: USER_LOGOUT })
     dispatch({ type: USER_DETAILS_RESET })
     //dispatch({ type: ORDER_LIST_MY_RESET })
@@ -98,7 +98,7 @@ export const register = (email, password, store_name, store_domain) => async (di
         })
 
         localStorage.setItem('userInfo', JSON.stringify(data))
-        Cookies.set('userInfo', JSON.stringify(data), { path: '/',  domain: '.jamlie.netlify.app' });
+        Cookies.set('userInfo', JSON.stringify(data), { path: '/',  domain: '.jamlie.herokuapp.com' });
 
     } catch (error) {
         dispatch({

@@ -19,7 +19,7 @@ function HomeScreen() {
     //const { search } = useLocation()
     const dispatch = useDispatch()
 
-    const cookie = Cookies.get('userInfo', { path: '/', domain: ".jamlie.netlify.app" })
+    const cookie = Cookies.get('userInfo', { path: '/', domain: ".jamlie.herokuapp.com" })
     localStorage.userInfo = cookie ? cookie : null
 
     const userLogin = useSelector(state => state.userLogin)

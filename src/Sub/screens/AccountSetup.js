@@ -26,7 +26,7 @@ function AccountSetup() {
     const userAccount = useSelector(state => state.userAccount)
     const { error, message } = userAccount
 
-    const cookie = Cookies.get('userInfo', { path: '/', domain: ".jamlie.netlify.app" })
+    const cookie = Cookies.get('userInfo', { path: '/', domain: ".jamlie.herokuapp.com" })
     localStorage.userInfo = cookie ? cookie : null
 
     const userLogin = useSelector(state => state.userLogin)
