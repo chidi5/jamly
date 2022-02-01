@@ -32,12 +32,14 @@ function StoreLogin({
         
         if (userInfo) {
             if (userInfo.user_details.profile_complete) {
-                window.location.href(`${window.location.protocol}//${userInfo.store_details.sub_domain}.${window.location.host}/admin`)
+                window.location.assign(`${window.location.protocol}//${userInfo.store_details.sub_domain}.${window.location.host}/admin`)
                 //navigate(redirect)
                 //console.log(`${window.location.protocol}//${userInfo.store_details.sub_domain}.${window.location.host}/admin`)
+                return false
             }else {
                 const domain = userInfo.store_details.sub_domain
-                window.location.href(`${window.location.protocol}//${domain}.${window.location.host}/admin/account-setup`) 
+                window.location.assign(`${window.location.protocol}//${domain}.${window.location.host}/admin/account-setup`)
+                return false;
             } 
         }
         if (userInfoReg) {
