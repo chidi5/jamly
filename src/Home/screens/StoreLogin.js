@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Link, useLocation, useNavigate } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import Background from '../../static/images/background.svg'
 import Message from '../components/Message'
@@ -19,7 +19,7 @@ function StoreLogin({
     const [message, setMessage] = useState('')
 
     const dispatch = useDispatch()
-    const { pathname, search } = useLocation()
+    const { pathname } = useLocation()
     //const navigate = useNavigate ()
 
     const userRegister = useSelector(state => state.userRegister)
@@ -66,7 +66,6 @@ function StoreLogin({
     const submitHandler = (e) => {
         e.preventDefault()
         dispatch(login(email, password))
-        console.log(email, password)
     }
 
     const submitRegHandler = (e) => {
@@ -76,7 +75,6 @@ function StoreLogin({
             setMessage('Passwords do not match')
         } else {
             dispatch(register(email, password, store_name, store_domain))
-            console.log(email, password, store_domain, store_name)
         }
     }
 

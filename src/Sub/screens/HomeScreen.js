@@ -32,11 +32,11 @@ function HomeScreen() {
         if (userInfo && userInfo.user_details.is_merchant && userInfo.user_details.profile_complete) {
             const userId = userInfo.user_details.id
             dispatch(listAdmin(userId))
-            console.log('good to go')
+            //console.log('good to go')
         } else {
             //navigate('/admin/account-setup')
             window.location.assign(`${window.location.protocol}//${window.location.host}/store-login`)
-            console.log('e no work')
+            //console.log('e no work')
         }
 
     }, [dispatch, userInfo])
