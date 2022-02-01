@@ -6,7 +6,7 @@ function Landing() {
     const navigate = useNavigate()
 
     const getStarted = () => {
-        navigate('/get-started')
+        navigate('/get_started')
     }
     return (
         <div className='min-h-full'>
@@ -18,7 +18,7 @@ function Landing() {
                             <div className="flex">
                             </div>
                             <div className='flex items-center'>
-                                <Link to='/store-login' className='text-white'>Login</Link>
+                                <Link to='/store_login' className='text-white'>Login</Link>
                                 {/*  Divider */}
                                 <hr className="w-px h-6 bg-gray-200 mx-3" />
                                 {/* User */}
