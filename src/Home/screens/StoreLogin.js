@@ -36,11 +36,11 @@ function StoreLogin({
                 //navigate(redirect)
             }else {
                 const domain = userInfo.store_details.sub_domain
-                //window.location.assign(`${window.location.protocol}//${domain}.${window.location.host}/admin/account-setup`) 
+                window.location.assign(`${window.location.protocol}//${domain}.${window.location.host}/admin/account-setup`) 
             } 
         }
 
-        if (userInfoReg) {
+        else if (userInfoReg) {
             if (userInfoReg.user_details.profile_complete) {
                 //window.location.assign(`${window.location.protocol}//${userInfoReg.store_details.sub_domain}.${window.location.host}/admin`)
                 //navigate(redirect)
