@@ -10,7 +10,7 @@ import reportWebVitals from './reportWebVitals';
 
 const host = window.location.host.split(".");
 console.log(host)
-if(host.length >= 4){
+if(host.length >= 5){
   const subDomain = host[0];
   ReactDOM.render(
     <Provider store={store}>
