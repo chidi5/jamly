@@ -29,7 +29,6 @@ function StoreLogin({
     const { error: errorLogin, loading: loadingLogin, userInfo } = userLogin
 
     useEffect(() => {
-        
         if (userInfo) {
             if (userInfo.user_details.profile_complete) {
                 window.location.assign(`${window.location.protocol}//${userInfo.store_details.sub_domain}.${window.location.host}/admin`)

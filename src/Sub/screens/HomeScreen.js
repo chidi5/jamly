@@ -29,6 +29,7 @@ function HomeScreen() {
     const { loading, error, admin } = adminList
     
     useEffect(() => {
+        window.location.reload();
         if (userInfo && userInfo.user_details.is_merchant && userInfo.user_details.profile_complete) {
             const userId = userInfo.user_details.id
             dispatch(listAdmin(userId))

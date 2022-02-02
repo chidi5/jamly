@@ -12,12 +12,21 @@ const host = window.location.host.split(".");
 console.log(host)
 if(host.length >= 3){
   const subDomain = host[0];
-  ReactDOM.render(
-    <Provider store={store}>
-      <SubDomainApp subDomain={subDomain} />
-    </Provider>,
-    document.getElementById('root')
-  );
+  if (subDomain === 'www') {
+    ReactDOM.render(
+      <Provider store={store}>
+        <App />
+      </Provider>,
+      document.getElementById('root')
+    );
+  }else {
+    ReactDOM.render(
+      <Provider store={store}>
+        <SubDomainApp subDomain={subDomain} />
+      </Provider>,
+      document.getElementById('root')
+    );
+  }
 }else{
   ReactDOM.render(
     <Provider store={store}>
