@@ -28,8 +28,6 @@ function HomeScreen() {
     const adminList = useSelector(state => state.adminList)
     const { loading, error, admin } = adminList
     
-    window.location.reload();
-    
     useEffect(() => {
         if (userInfo && userInfo.user_details.is_merchant && userInfo.user_details.profile_complete) {
             const userId = userInfo.user_details.id
@@ -39,6 +37,7 @@ function HomeScreen() {
             //navigate('/admin/account-setup')
             //window.location.assign(`${window.location.protocol}//${window.location.host}/store_login`)
             console.log('e no work')
+            window.location.reload();
         }
 
     }, [dispatch, userInfo])
