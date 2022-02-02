@@ -32,23 +32,23 @@ function StoreLogin({
         
         if (userInfo) {
             if (userInfo.user_details.profile_complete) {
-                //window.location.href = `${window.location.protocol}//${userInfo.store_details.sub_domain}.${window.location.host}/admin`
+                //window.location.href = `${window.location.protocol}//www.${userInfo.store_details.sub_domain}.${window.location.host}/admin`
                 //navigate(redirect)
-                //console.log(`${window.location.protocol}//${userInfo.store_details.sub_domain}.${window.location.host}/admin`)
+                console.log(`${window.location.protocol}//www.${userInfo.store_details.sub_domain}.${window.location.host}/admin`)
             }else {
                 const domain = userInfo.store_details.sub_domain
-                //window.location.href = `${window.location.protocol}//${domain}.${window.location.host}/admin/account-setup` 
+                //window.location.href = `${window.location.protocol}//www.${domain}.${window.location.host}/admin/account-setup` 
             } 
         }
         if (userInfoReg) {
             if (userInfoReg.user_details.profile_complete) {
-                //window.location.assign(`${window.location.protocol}//${userInfoReg.store_details.sub_domain}.${window.location.host}/admin`)
+                //window.location.assign(`${window.location.protocol}//www.${userInfoReg.store_details.sub_domain}.${window.location.host}/admin`)
                 //navigate(redirect)
                 //console.log('enter')
             }else {
                 const domain = userInfoReg.store_details.sub_domain
                 //console.log(domain)
-                //window.location.assign(`${window.location.protocol}//${domain}.${window.location.host}/admin/account-setup`) 
+                //window.location.assign(`${window.location.protocol}//www.${domain}.${window.location.host}/admin/account-setup`) 
             } 
         }
         
