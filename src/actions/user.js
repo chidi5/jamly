@@ -110,7 +110,7 @@ export const register = (email, password, store_name, store_domain) => async (di
     }
 }
 
-export const accountComplete = (id, first_name, last_name, state, city, street, phone_number, bank, account_number) => async (dispatch) => {
+export const accountComplete = (user_id, first_name, last_name, state, city, street, phone_number, bank, account_number) => async (dispatch) => {
     try {
         dispatch({
             type: USER_ACCOUNT_REQUEST
@@ -122,9 +122,11 @@ export const accountComplete = (id, first_name, last_name, state, city, street, 
             }
         }
 
+        console.log(user_id, first_name, last_name, state, city, street, phone_number, bank, account_number)
+
         const { data } = await axios.put(
             'https://jamly2021.herokuapp.com/api/completeadminprofile',
-            { 'user_id': id, 'first_name': first_name, 'last_name': last_name, 'state': state, 'city': city, 'street': street, 'phone_number': phone_number, 'bank':bank, 'account_number':account_number },
+            { 'user_id': user_id, 'first_name': first_name, 'last_name': last_name, 'state': state, 'city': city, 'street': street, 'phone_number': phone_number, 'bank':bank, 'account_number':account_number },
             config
         )
 

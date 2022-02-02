@@ -80,7 +80,7 @@ function StoreLogin({
             {error && <Message variant='red'>{error}</Message>}
             {errorLogin && <Message variant='red'>{errorLogin}</Message>}
             <div id="container" className={`bg-white rounded-xl shadow-md relative overflow-hidden w-768 max-w-full min-h-50 ${signUp ? 'right-panel-active' : ''}`}>
-                <div className={`form-container z-10 xl:w-3/6 w-full sign-up-container ${pathname === '/get-started' ? 'xl:w-full max-screen' : 'xl:block'}`}>
+                <div className={`form-container z-10 xl:w-3/6 w-full sign-up-container ${pathname === '/get_started' ? 'xl:w-full max-screen' : 'xl:block'}`}>
                     <form onSubmit={submitRegHandler} className='bg-white h-full flex-col flex justify-center xl:px-12 px-7'>
                         <h2 className="m-0 font-bold text-2xl text-gray-900">Create Account</h2>
                         <p className="leading-5 tracking-wide font-medium text-xs text-gray-800 my-2">Create your store and get started</p>
