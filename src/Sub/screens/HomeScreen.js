@@ -35,7 +35,7 @@ function HomeScreen() {
             //console.log('good to go')
         } else {
             //navigate('/admin/account-setup')
-            //window.location.href = `${window.location.protocol}//${window.location.host}/store_login`
+            //window.location.assign(`${window.location.protocol}//${window.location.host}/store_login`)
             console.log('e no work')
         }
 
