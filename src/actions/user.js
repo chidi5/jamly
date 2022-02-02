@@ -122,11 +122,13 @@ export const accountComplete = (user_id, first_name, last_name, state, city, str
             }
         }
 
-        console.log(user_id, first_name, last_name, state, city, street, phone_number, bank, account_number)
+        var body = JSON.stringify({ 'user_id': user_id, 'first_name': first_name, 'last_name': last_name, 'state': state, 'city': city, 'street': street, 'phone_number': phone_number, 'bank':bank, 'account_number':account_number })
+
+        console.log(body)
 
         const { data } = await axios.put(
             'https://jamly2021.herokuapp.com/api/completeadminprofile',
-            { 'user_id': user_id, 'first_name': first_name, 'last_name': last_name, 'state': state, 'city': city, 'street': street, 'phone_number': phone_number, 'bank':bank, 'account_number':account_number },
+            body,
             config
         )
 
