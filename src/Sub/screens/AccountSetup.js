@@ -159,7 +159,7 @@ function AccountSetup() {
                                         id="account-number"
                                         autoComplete="account-number"
                                         className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
-                                        value={account_number} onChange={(e) => setAccount(e.target.value)}
+                                        value={account_number} onChange={(e) => setAccount(parseInt(e.target.value))}
                                         />
                                     </div>
                 
@@ -173,7 +173,7 @@ function AccountSetup() {
                                         id="phone-number"
                                         autoComplete="phone-number"
                                         className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
-                                        value={phone_number} onChange={(e) => setPhone(e.target.value)}
+                                        value={phone_number} onChange={(e) => setPhone(parseInt(e.target.value))}
                                         />
                                     </div>
                                 </div>
