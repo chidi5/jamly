@@ -15,8 +15,6 @@ import Loader from '../components/Loader'
 
 function HomeScreen() {
 
-    //const navigate = useNavigate ()
-    //const { search } = useLocation()
     const dispatch = useDispatch()
 
     const cookie = Cookies.get('userInfo', { path: '/', domain: ".joshuaigbokwe.shop" })

@@ -118,7 +118,7 @@ export const accountComplete = (id, first_name, last_name, state, city, street, 
 
         const config = {
             headers: {
-                'Content-type': 'application/json'
+                'Content-Type': 'application/json'
             }
         }
 

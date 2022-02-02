@@ -26,8 +26,13 @@ function AccountSetup() {
     const userAccount = useSelector(state => state.userAccount)
     const { error, message } = userAccount
 
-    const cookie = Cookies.get('userInfo', { path: '/', domain: ".joshuaigbokwe.shop" })
-    localStorage.userInfo = cookie ? cookie : null
+    //const cookie = Cookies.get('userInfo', { path: '/', domain: ".joshuaigbokwe.shop" })
+    //localStorage.userInfo = cookie ? cookie : null
+
+    useEffect(() => {
+        const cookie = Cookies.get('userInfo', { path: '/', domain: ".joshuaigbokwe.shop" })
+        localStorage.userInfo = cookie ? cookie : null
+    }, [])
 
     const userLogin = useSelector(state => state.userLogin)
     const { userInfo } = userLogin
@@ -37,7 +42,8 @@ function AccountSetup() {
             navigate('/admin')
         }
         setId(userInfo.user_details.id)
-    }, [userInfo, navigate])
+        console.log(id)
+    }, [userInfo, navigate, id])
 
 
     const submitHandler = (e) => {
