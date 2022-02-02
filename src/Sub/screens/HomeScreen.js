@@ -19,7 +19,7 @@ function HomeScreen() {
     //const { search } = useLocation()
     const dispatch = useDispatch()
 
-    const cookie = Cookies.get('userInfo', { path: '/', domain: ".jamlie.herokuapp.com" })
+    const cookie = Cookies.get('userInfo', { path: '/', domain: ".joshuaigbokwe.shop" })
     localStorage.userInfo = cookie ? cookie : null
 
     const userLogin = useSelector(state => state.userLogin)
@@ -35,7 +35,7 @@ function HomeScreen() {
             //console.log('good to go')
         } else {
             //navigate('/admin/account-setup')
-            //window.location.href = `${window.location.protocol}//www.${window.location.host}/store_login`
+            //window.location.href = `${window.location.protocol}//${window.location.host}/store_login`
             console.log('e no work')
         }
 
