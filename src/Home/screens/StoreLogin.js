@@ -31,23 +31,23 @@ function StoreLogin({
     useEffect(() => {
         if (userInfo) {
             if (userInfo.user_details.profile_complete) {
-                window.location.assign(`${window.location.protocol}//${userInfo.store_details.sub_domain}.${window.location.host}/admin`)
+                window.location.assign(`${window.location.protocol}//${userInfo.store_details.sub_domain}.joshuaigbokwe.shop/admin`)
                 //navigate(redirect)
                 console.log(`${window.location.protocol}//${userInfo.store_details.sub_domain}.${window.location.host}/admin`)
             }else {
                 const domain = userInfo.store_details.sub_domain
-                window.location.assign(`${window.location.protocol}//${domain}.${window.location.host}/admin/account-setup`)
+                window.location.assign(`${window.location.protocol}//${domain}.joshuaigbokwe.shop/admin/account-setup`)
             } 
         }
         if (userInfoReg) {
             if (userInfoReg.user_details.profile_complete) {
-                window.location.assign(`${window.location.protocol}//${userInfoReg.store_details.sub_domain}.${window.location.host}/admin`)
+                window.location.assign(`${window.location.protocol}//${userInfoReg.store_details.sub_domain}.joshuaigbokwe.shop/admin`)
                 //navigate(redirect)
                 //console.log('enter')
             }else {
                 const domain = userInfoReg.store_details.sub_domain
                 //console.log(domain)
-                window.location.assign(`${window.location.protocol}//${domain}.${window.location.host}/admin/account-setup`) 
+                window.location.assign(`${window.location.protocol}//${domain}.joshuaigbokwe.shop/admin/account-setup`) 
             } 
         }
         
