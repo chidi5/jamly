@@ -31,16 +31,6 @@ function AccountSetup() {
 
     const userLogin = useSelector(state => state.userLogin)
     const { userInfo } = userLogin
-
-    /*const paramsMatch = window.location.href.match(/\?.+/);
-
-    if (paramsMatch) {
-        const params = new URLSearchParams(paramsMatch[0]);
-        const userInfo = params.get('user');
-        if (userInfo) {
-            localStorage.userInfo = userInfo;
-        }
-    }*/
     
     useEffect(() => {
         if (userInfo && userInfo.user_details.profile_complete) {
@@ -58,8 +48,6 @@ function AccountSetup() {
 
     return (
         <Fragment>
-            {message && <Message variant='teal'>{message}</Message>}
-            {error && <Message variant='red'>{error}</Message>}
             <div className='flex flex-col justify-center items-center px-6 my-6'>
                 <div className="mt-5 md:mt-0 md:col-span-2">
                     <form onSubmit={submitHandler}>
