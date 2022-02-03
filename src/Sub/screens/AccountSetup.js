@@ -31,20 +31,17 @@ function AccountSetup() {
 
     const userLogin = useSelector(state => state.userLogin)
     const { userInfo } = userLogin
-
+    
     useEffect(() => {
         const cookie = Cookies.get('userInfo', { path: '/', domain: ".joshuaigbokwe.shop" })
         localStorage.userInfo = cookie ? cookie : null
-    }, [])
-    
-    useEffect(() => {
         console.log(isComplete)
         if (isComplete) {
             navigate('/admin?profile=true')
         }
         setId(userInfo ? userInfo.user_details.id : null)
         console.log(id)
-    }, [userInfo, navigate, id])
+    }, [userInfo, navigate, id, isComplete])
 
 
     const submitHandler = (e) => {
@@ -52,6 +49,7 @@ function AccountSetup() {
         dispatch(accountComplete(id, first_name, last_name, state, city, street, phone_number, bank, account_number))
         //console.log(id, first_name, last_name, state, city, street, phone_number, bank, account_number)
     }
+
 
     return (
         <Fragment>
@@ -181,11 +179,8 @@ function AccountSetup() {
                                 </div>
                             </div>
                             <div className="px-4 py-3 bg-gray-50 text-right sm:px-6">
-                                <button
-                                type="submit"
-                                className="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                                >
-                                Save
+                                <button className="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                                    Save
                                 </button>
                             </div>
                         </div>

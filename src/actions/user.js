@@ -137,7 +137,7 @@ export const accountComplete = (user_id, first_name, last_name, state, city, str
             payload: data
         })
 
-        localStorage.setItem('isCompleted', true)
+        localStorage.setItem('isComplete', true)
 
     } catch (error) {
         dispatch({
