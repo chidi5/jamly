@@ -7,8 +7,11 @@ import rootReducer from './reducers'
 const userInfoFromStorage = localStorage.getItem('userInfo') ?
     JSON.parse(localStorage.getItem('userInfo')) : null
 
+const isCompletedFromStorage = localStorage.getItem('isCompleted') ?
+    JSON.parse(localStorage.getItem('isCompleted')) : null
+
 const initialState = {
-    userLogin: { userInfo: userInfoFromStorage },
+    userLogin: { userInfo: userInfoFromStorage, isCompleted: isCompletedFromStorage },
 }
 
 const middleware = [thunk];

@@ -137,6 +137,8 @@ export const accountComplete = (user_id, first_name, last_name, state, city, str
             payload: data
         })
 
+        localStorage.setItem('isCompleted', true)
+
     } catch (error) {
         dispatch({
             type: USER_ACCOUNT_FAIL,

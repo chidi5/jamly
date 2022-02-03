@@ -24,7 +24,7 @@ function AccountSetup() {
     const dispatch = useDispatch()
 
     const userAccount = useSelector(state => state.userAccount)
-    const { error, message, isComplete } = userAccount
+    const { error, isComplete } = userAccount
 
     //const cookie = Cookies.get('userInfo', { path: '/', domain: ".joshuaigbokwe.shop" })
     //localStorage.userInfo = cookie ? cookie : null
@@ -38,6 +38,7 @@ function AccountSetup() {
     }, [])
     
     useEffect(() => {
+        console.log(isComplete)
         if (isComplete) {
             navigate('/admin?profile=true')
         }
