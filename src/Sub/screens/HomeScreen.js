@@ -39,7 +39,7 @@ function HomeScreen() {
     }, [])
     
     useEffect(() => {
-        if(isComplete && isComp) {
+        if(isComplete) {
             const userId = userInfo.user_details.id
             console.log(userId)
             dispatch(listAdmin(userId))
@@ -50,7 +50,7 @@ function HomeScreen() {
             console.log('good to go')
         } else {
             //navigate('/admin/account-setup')
-            window.location.assign(`${window.location.protocol}//$joshuaigbokwe.com/store_login`)
+            window.location.assign(`${window.location.protocol}//joshuaigbokwe.shop/store_login`)
             console.log('e no work')
             //window.location.reload();
         }
