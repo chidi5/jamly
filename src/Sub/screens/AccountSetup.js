@@ -54,7 +54,6 @@ function AccountSetup() {
 
     return (
         <Fragment>
-            {message && <Message variant='green'>{message}</Message>}
             {error && <Message variant='red'>{error}</Message>}
             <div className='flex flex-col justify-center items-center px-6 my-6'>
                 <div className="mt-5 md:mt-0 md:col-span-2">
