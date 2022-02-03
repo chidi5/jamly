@@ -29,19 +29,19 @@ function AccountSetup() {
     //const cookie = Cookies.get('userInfo', { path: '/', domain: ".joshuaigbokwe.shop" })
     //localStorage.userInfo = cookie ? cookie : null
 
+    const userLogin = useSelector(state => state.userLogin)
+    const { userInfo } = userLogin
+
     useEffect(() => {
         const cookie = Cookies.get('userInfo', { path: '/', domain: ".joshuaigbokwe.shop" })
         localStorage.userInfo = cookie ? cookie : null
     }, [])
-
-    const userLogin = useSelector(state => state.userLogin)
-    const { userInfo } = userLogin
     
     useEffect(() => {
         if (isComplete) {
             navigate('/admin?profile=true')
         }
-        setId(userInfo.user_details.id)
+        setId(userInfo ? userInfo.user_details.id : null)
         console.log(id)
     }, [userInfo, navigate, id])
 
@@ -161,7 +161,7 @@ function AccountSetup() {
                                         id="account-number"
                                         autoComplete="account-number"
                                         className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
-                                        value={account_number} onChange={(e) => setAccount(parseInt(e.target.value))}
+                                        value={account_number} onChange={(e) => setAccount(e.target.value)}
                                         />
                                     </div>
                 
@@ -175,7 +175,7 @@ function AccountSetup() {
                                         id="phone-number"
                                         autoComplete="phone-number"
                                         className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
-                                        value={phone_number} onChange={(e) => setPhone(parseInt(e.target.value))}
+                                        value={phone_number} onChange={(e) => setPhone(e.target.value)}
                                         />
                                     </div>
                                 </div>
