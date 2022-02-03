@@ -42,15 +42,15 @@ function HomeScreen() {
         if(isComplete && isComp) {
             const userId = userInfo.user_details.id
             console.log(userId)
-            //dispatch(listAdmin(userId))
+            dispatch(listAdmin(userId))
         }else if (userInfo && userInfo.user_details.is_merchant && userInfo.user_details.profile_complete) {
             const userId = userInfo.user_details.id
             console.log(userId + ' else')
-            //dispatch(listAdmin(userId))
-            //console.log('good to go')
+            dispatch(listAdmin(userId))
+            console.log('good to go')
         } else {
             //navigate('/admin/account-setup')
-            //window.location.assign(`${window.location.protocol}//${window.location.host}/store_login`)
+            window.location.assign(`${window.location.protocol}//$joshuaigbokwe.com/store_login`)
             console.log('e no work')
             //window.location.reload();
         }

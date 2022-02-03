@@ -31,15 +31,18 @@ function AccountSetup() {
 
     const userLogin = useSelector(state => state.userLogin)
     const { userInfo } = userLogin
-    
+
     useEffect(() => {
         const cookie = Cookies.get('userInfo', { path: '/', domain: ".joshuaigbokwe.shop" })
         localStorage.userInfo = cookie ? cookie : null
+    }, [])
+    
+    useEffect(() => {
         console.log(isComplete)
         if (isComplete) {
             navigate('/admin?profile=true')
         }
-        setId(userInfo ? userInfo.user_details.id : null)
+        setId(userInfo ? userInfo.user_details.id : window.location.reload())
         console.log(id)
     }, [userInfo, navigate, id, isComplete])
 
@@ -49,7 +52,7 @@ function AccountSetup() {
         dispatch(accountComplete(id, first_name, last_name, state, city, street, phone_number, bank, account_number))
         //console.log(id, first_name, last_name, state, city, street, phone_number, bank, account_number)
     }
-
+    
 
     return (
         <Fragment>
