@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 //import { useNavigate } from 'react-router-dom'
+import { useLocation } from 'react-router'
 import { useDispatch, useSelector } from 'react-redux'
 import LatestOrder from '../partials/dashboard/LatestOrder'
 import SaleReport from '../partials/dashboard/SaleReport'
@@ -16,29 +17,45 @@ import Loader from '../components/Loader'
 function HomeScreen() {
 
     const dispatch = useDispatch()
+    const { search } = useLocation()
 
-    const cookie = Cookies.get('userInfo', { path: '/', domain: ".joshuaigbokwe.shop" })
-    localStorage.userInfo = cookie ? cookie : null
+    const isCompUrl = new URLSearchParams(search).get("profile")
+    const isComp = isCompUrl ? isCompUrl : null
+
+    console.log(isComp)
 
     const userLogin = useSelector(state => state.userLogin)
     const { userInfo } = userLogin
 
     const adminList = useSelector(state => state.adminList)
     const { loading, error, admin } = adminList
+
+    const userAccount = useSelector(state => state.userAccount)
+    const { isComplete } = userAccount
+
+    useEffect(() => {
+        const cookie = Cookies.get('userInfo', { path: '/', domain: ".joshuaigbokwe.shop" })
+        localStorage.userInfo = cookie ? cookie : null
+    }, [])
     
     useEffect(() => {
-        if (userInfo && userInfo.user_details.is_merchant && userInfo.user_details.profile_complete) {
+        if(isComplete && isComp) {
             const userId = userInfo.user_details.id
-            dispatch(listAdmin(userId))
+            console.log(userId)
+            //dispatch(listAdmin(userId))
+        }else if (userInfo && userInfo.user_details.is_merchant && userInfo.user_details.profile_complete) {
+            const userId = userInfo.user_details.id
+            console.log(userId + ' else')
+            //dispatch(listAdmin(userId))
             //console.log('good to go')
         } else {
             //navigate('/admin/account-setup')
             //window.location.assign(`${window.location.protocol}//${window.location.host}/store_login`)
             console.log('e no work')
-            window.location.reload();
+            //window.location.reload();
         }
 
-    }, [dispatch, userInfo])
+    }, [dispatch, userInfo, isComp, isComplete])
 
 
     return (

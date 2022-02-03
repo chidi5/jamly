@@ -24,7 +24,7 @@ function AccountSetup() {
     const dispatch = useDispatch()
 
     const userAccount = useSelector(state => state.userAccount)
-    const { error, message } = userAccount
+    const { error, message, isComplete } = userAccount
 
     //const cookie = Cookies.get('userInfo', { path: '/', domain: ".joshuaigbokwe.shop" })
     //localStorage.userInfo = cookie ? cookie : null
@@ -38,8 +38,8 @@ function AccountSetup() {
     const { userInfo } = userLogin
     
     useEffect(() => {
-        if (userInfo && userInfo.user_details.profile_complete) {
-            navigate('/admin')
+        if (isComplete) {
+            navigate('/admin?profile=true')
         }
         setId(userInfo.user_details.id)
         console.log(id)
@@ -54,6 +54,8 @@ function AccountSetup() {
 
     return (
         <Fragment>
+            {message && <Message variant='green'>{message}</Message>}
+            {error && <Message variant='red'>{error}</Message>}
             <div className='flex flex-col justify-center items-center px-6 my-6'>
                 <div className="mt-5 md:mt-0 md:col-span-2">
                     <form onSubmit={submitHandler}>

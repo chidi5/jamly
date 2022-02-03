@@ -15,17 +15,21 @@ import {
 
 } from '../actions/types.js'
 
+const initialSate = {
+    isComplete: null,
+}
 
-export const userLoginReducer = (state = {}, action) => {
+
+export const userLoginReducer = (state = initialSate, action) => {
     switch (action.type) {
         case USER_LOGIN_REQUEST:
             return { loading: true }
 
         case USER_LOGIN_SUCCESS:
-            return { loading: false, userInfo: action.payload }
+            return { ...state, loading: false, isComplete: action.payload.user_details.profile_complete, userInfo: action.payload }
 
         case USER_LOGIN_FAIL:
-            return { loading: false, error: action.payload }
+            return { ...state, loading: false, error: action.payload }
 
         case USER_LOGOUT:
             return {}
@@ -36,16 +40,16 @@ export const userLoginReducer = (state = {}, action) => {
 }
 
 
-export const userRegisterReducer = (state = {}, action) => {
+export const userRegisterReducer = (state = initialSate, action) => {
     switch (action.type) {
         case USER_REGISTER_REQUEST:
             return { loading: true }
 
         case USER_REGISTER_SUCCESS:
-            return { loading: false, userInfo: action.payload }
+            return { ...state, loading: false, isComplete:false, userInfo: action.payload }
 
         case USER_REGISTER_FAIL:
-            return { loading: false, error: action.payload }
+            return { ...state, loading: false, isComplete:false, error: action.payload }
 
         case USER_LOGOUT:
             return {}
@@ -55,16 +59,16 @@ export const userRegisterReducer = (state = {}, action) => {
     }
 }
 
-export const userAccountReducer = (state = {}, action) => {
+export const userAccountReducer = (state = initialSate, action) => {
     switch (action.type) {
         case USER_ACCOUNT_REQUEST:
             return { loading: true }
 
         case USER_ACCOUNT_SUCCESS:
-            return { loading: false, message: action.payload }
+            return { ...state, loading: false, isComplete:true, message: action.payload }
 
         case USER_ACCOUNT_FAIL:
-            return { loading: false, error: action.payload }
+            return { ...state, loading: false, isComplete:false, error: action.payload }
 
         default:
             return state

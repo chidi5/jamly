@@ -6,6 +6,7 @@ import Message from '../components/Message'
 import { register } from '../../actions/user'
 import { login } from '../../actions/user'
 
+
 function StoreLogin({
     signUp,
     setSignUp,
@@ -20,43 +21,44 @@ function StoreLogin({
 
     const dispatch = useDispatch()
     const { pathname } = useLocation()
-    //const navigate = useNavigate ()
 
     const userRegister = useSelector(state => state.userRegister)
-    const { error, loading, userInfo: userInfoReg } = userRegister
+    const { error } = userRegister
 
     const userLogin = useSelector(state => state.userLogin)
-    const { error: errorLogin, loading: loadingLogin, userInfo } = userLogin
+    const { error: errorLogin, isComplete, userInfo } = userLogin
+
+    console.log(isComplete)
 
     useEffect(() => {
         if (userInfo) {
-            if (userInfo.user_details.profile_complete) {
-                window.location.assign(`${window.location.protocol}//${userInfo.store_details.sub_domain}.joshuaigbokwe.shop/admin`)
+            if (isComplete) {
+                //window.location.assign(`${window.location.protocol}//${userInfo.store_details.sub_domain}.joshuaigbokwe.shop/admin`)
                 //navigate(redirect)
+                console.log(isComplete)
                 console.log(`${window.location.protocol}//${userInfo.store_details.sub_domain}.${window.location.host}/admin`)
             }else {
                 const domain = userInfo.store_details.sub_domain
+                console.log('setup_login')
                 window.location.assign(`${window.location.protocol}//${domain}.joshuaigbokwe.shop/admin/account-setup`)
             } 
-        }
+        }/*
         if (userInfoReg) {
             if (userInfoReg.user_details.profile_complete) {
-                window.location.assign(`${window.location.protocol}//${userInfoReg.store_details.sub_domain}.joshuaigbokwe.shop/admin`)
+                //window.location.assign(`${window.location.protocol}//${userInfoReg.store_details.sub_domain}.joshuaigbokwe.shop/admin`)
                 //navigate(redirect)
                 //console.log('enter')
             }else {
                 const domain = userInfoReg.store_details.sub_domain
-                //console.log(domain)
-                window.location.assign(`${window.location.protocol}//${domain}.joshuaigbokwe.shop/admin/account-setup`) 
+                console.log('setup')
+                //window.location.assign(`${window.location.protocol}//${domain}.joshuaigbokwe.shop/admin/account-setup`) 
             } 
-        }
-        
+        }*/
         document.body.style.backgroundImage=`url(${Background})`
-
         return() => {
             document.body.style.backgroundImage= 'none'
         }
-    }, [userInfo, userInfoReg]); // triggered on route change
+    }, [userInfo, isComplete]); // triggered on route change
 
 
     const submitHandler = (e) => {
