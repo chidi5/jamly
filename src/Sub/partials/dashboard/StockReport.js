@@ -42,13 +42,13 @@ function StockReport() {
                         <thead className="text-xs font-semibold uppercase text-gray-400 bg-gray-50">
                         <tr>
                             <th className="p-2 whitespace-nowrap">
-                            <div className="font-semibold text-left">Item</div>
+                                <div className="font-semibold text-left">Item</div>
                             </th>
                             <th className="p-2 whitespace-nowrap">
-                            <div className="font-semibold text-left">Product ID</div>
+                                <div className="font-semibold text-left">Product ID</div>
                             </th>
                             <th className="p-2 whitespace-nowrap">
-                            <div className="font-semibold text-left">Status</div>
+                                <div className="font-semibold text-left">Status</div>
                             </th>
                         </tr>
                         </thead>

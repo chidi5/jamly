@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import Transition from '../../../utils/Transition';
 
 import UserAvatar from '../../../static/images/icon.png';
+import { logout } from '../../../actions/user';
+import { useDispatch } from 'react-redux';
 
 function UserMenu() {
 
@@ -10,6 +12,12 @@ function UserMenu() {
 
   const trigger = useRef(null);
   const dropdown = useRef(null);
+
+  const dispatch = useDispatch()
+
+    const logoutHandler = () => {
+        dispatch(logout())
+    }
 
   // close on click outside
   useEffect(() => {
@@ -82,7 +90,7 @@ function UserMenu() {
                         <Link
                             className="font-medium text-sm text-indigo-500 hover:text-indigo-600 flex items-center py-1 px-3"
                             to="/"
-                            onClick={() => setDropdownOpen(!dropdownOpen)}
+                            onClick={() => {logoutHandler(); setDropdownOpen(!dropdownOpen)}}
                         >
                             Sign Out
                         </Link>

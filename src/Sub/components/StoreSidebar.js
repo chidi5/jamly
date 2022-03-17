@@ -100,101 +100,18 @@ function StoreSidebar({
                 <div>
                     <ul className="mt-3">
                         {/* Home */}
-                        <li className={`px-3 py-2 rounded-sm mb-0.5 last:mb-0 ${pathname === '/admin' && 'bg-gray-900'}`}>
-                            <Link to="/admin" className={`block text-gray-200 hover:text-white truncate transition duration-150 ${pathname === '/admin' && 'hover:text-gray-200'}`}>
+                        <li className={`px-3 py-2 rounded-sm mb-0.5 last:mb-0 ${pathname === '/' && 'bg-gray-900'}`}>
+                            <Link to="/" className={`block text-gray-200 hover:text-white truncate transition duration-150 ${pathname === '/admin' && 'hover:text-gray-200'}`}>
                             <div className="flex items-center">
                                 <svg className="shrink-0 h-6 w-6" viewBox="0 0 24 24">
-                                <path className={`fill-current text-gray-400 ${pathname === '/admin' && '!text-indigo-500'}`} d="M12 0C5.383 0 0 5.383 0 12s5.383 12 12 12 12-5.383 12-12S18.617 0 12 0z" />
-                                <path className={`fill-current text-gray-600 ${pathname === '/admin' && 'text-indigo-600'}`} d="M12 3c-4.963 0-9 4.037-9 9s4.037 9 9 9 9-4.037 9-9-4.037-9-9-9z" />
-                                <path className={`fill-current text-gray-400 ${pathname === '/admin' && 'text-indigo-200'}`} d="M12 15c-1.654 0-3-1.346-3-3 0-.462.113-.894.3-1.285L6 6l4.714 3.301A2.973 2.973 0 0112 9c1.654 0 3 1.346 3 3s-1.346 3-3 3z" />
+                                <path className={`fill-current text-gray-400 ${pathname === '/' && '!text-indigo-500'}`} d="M12 0C5.383 0 0 5.383 0 12s5.383 12 12 12 12-5.383 12-12S18.617 0 12 0z" />
+                                <path className={`fill-current text-gray-600 ${pathname === '/' && 'text-indigo-600'}`} d="M12 3c-4.963 0-9 4.037-9 9s4.037 9 9 9 9-4.037 9-9-4.037-9-9-9z" />
+                                <path className={`fill-current text-gray-400 ${pathname === '/' && 'text-indigo-200'}`} d="M12 15c-1.654 0-3-1.346-3-3 0-.462.113-.894.3-1.285L6 6l4.714 3.301A2.973 2.973 0 0112 9c1.654 0 3 1.346 3 3s-1.346 3-3 3z" />
                                 </svg>
                                 <span className="text-sm font-medium ml-3 lg:opacity-0 lg:navbar-expanded:opacity-100 2xl:opacity-100 duration-200">Home</span>
                             </div>
                             </Link>
                         </li>
-                        {/* Orders */}
-                        <li className={`px-3 py-2 rounded-sm mb-0.5 last:mb-0 ${pathname.includes('orders') && 'bg-gray-900'}`}>
-                            <Link to="/sales/orders" className={`block text-gray-200 hover:text-white truncate transition duration-150 ${pathname.includes('orders') && 'hover:text-gray-200'}`}>
-                            <div className="flex items-center">
-                                <svg className="shrink-0 h-6 w-6" viewBox="0 0 24 24">
-                                <path className={`fill-current text-gray-600 ${pathname.includes('orders') && 'text-indigo-500'}`} d="M20 7a.75.75 0 01-.75-.75 1.5 1.5 0 00-1.5-1.5.75.75 0 110-1.5 1.5 1.5 0 001.5-1.5.75.75 0 111.5 0 1.5 1.5 0 001.5 1.5.75.75 0 110 1.5 1.5 1.5 0 00-1.5 1.5A.75.75 0 0120 7zM4 23a.75.75 0 01-.75-.75 1.5 1.5 0 00-1.5-1.5.75.75 0 110-1.5 1.5 1.5 0 001.5-1.5.75.75 0 111.5 0 1.5 1.5 0 001.5 1.5.75.75 0 110 1.5 1.5 1.5 0 00-1.5 1.5A.75.75 0 014 23z" />
-                                <path className={`fill-current text-gray-400 ${pathname.includes('orders') && 'text-indigo-300'}`} d="M17 23a1 1 0 01-1-1 4 4 0 00-4-4 1 1 0 010-2 4 4 0 004-4 1 1 0 012 0 4 4 0 004 4 1 1 0 010 2 4 4 0 00-4 4 1 1 0 01-1 1zM7 13a1 1 0 01-1-1 4 4 0 00-4-4 1 1 0 110-2 4 4 0 004-4 1 1 0 112 0 4 4 0 004 4 1 1 0 010 2 4 4 0 00-4 4 1 1 0 01-1 1z" />
-                                </svg>
-                                <span className="text-sm font-medium ml-3 lg:opacity-0 lg:navbar-expanded:opacity-100 2xl:opacity-100 duration-200">Orders</span>
-                            </div>
-                            </Link>
-                        </li>
-                        {/* Customers */}
-                        <li className={`px-3 py-2 rounded-sm mb-0.5 last:mb-0 ${pathname.includes('customers') && 'bg-gray-900'}`}>
-                            <Link to="/customers" className={`block text-gray-200 hover:text-white truncate transition duration-150 ${pathname.includes('customers') && 'hover:text-gray-200'}`}>
-                            <div className="flex items-center">
-                                <svg className="shrink-0 h-6 w-6" viewBox="0 0 24 24">
-                                <path className={`fill-current text-gray-600 ${pathname.includes('customers') && 'text-indigo-500'}`} d="M20 7a.75.75 0 01-.75-.75 1.5 1.5 0 00-1.5-1.5.75.75 0 110-1.5 1.5 1.5 0 001.5-1.5.75.75 0 111.5 0 1.5 1.5 0 001.5 1.5.75.75 0 110 1.5 1.5 1.5 0 00-1.5 1.5A.75.75 0 0120 7zM4 23a.75.75 0 01-.75-.75 1.5 1.5 0 00-1.5-1.5.75.75 0 110-1.5 1.5 1.5 0 001.5-1.5.75.75 0 111.5 0 1.5 1.5 0 001.5 1.5.75.75 0 110 1.5 1.5 1.5 0 00-1.5 1.5A.75.75 0 014 23z" />
-                                <path className={`fill-current text-gray-400 ${pathname.includes('customers') && 'text-indigo-300'}`} d="M17 23a1 1 0 01-1-1 4 4 0 00-4-4 1 1 0 010-2 4 4 0 004-4 1 1 0 012 0 4 4 0 004 4 1 1 0 010 2 4 4 0 00-4 4 1 1 0 01-1 1zM7 13a1 1 0 01-1-1 4 4 0 00-4-4 1 1 0 110-2 4 4 0 004-4 1 1 0 112 0 4 4 0 004 4 1 1 0 010 2 4 4 0 00-4 4 1 1 0 01-1 1z" />
-                                </svg>
-                                <span className="text-sm font-medium ml-3 lg:opacity-0 lg:navbar-expanded:opacity-100 2xl:opacity-100 duration-200">Customers</span>
-                            </div>
-                            </Link>
-                        </li>
-                        {/* Analytics */}
-                        <li className={`px-3 py-2 rounded-sm mb-0.5 last:mb-0 ${pathname.includes('analytics') && 'bg-gray-900'}`}>
-                            <Link  to="/a" className={`block text-gray-200 hover:text-white truncate transition duration-150 ${pathname.includes('analytics') && 'hover:text-gray-200'}`}>
-                            <div className="flex items-center">
-                                <svg className="shrink-0 h-6 w-6" viewBox="0 0 24 24">
-                                <path className={`fill-current text-gray-600 ${pathname.includes('analytics') && 'text-indigo-500'}`} d="M0 20h24v2H0z" />
-                                <path className={`fill-current text-gray-400 ${pathname.includes('analytics') && 'text-indigo-300'}`} d="M4 18h2a1 1 0 001-1V8a1 1 0 00-1-1H4a1 1 0 00-1 1v9a1 1 0 001 1zM11 18h2a1 1 0 001-1V3a1 1 0 00-1-1h-2a1 1 0 00-1 1v14a1 1 0 001 1zM17 12v5a1 1 0 001 1h2a1 1 0 001-1v-5a1 1 0 00-1-1h-2a1 1 0 00-1 1z" />
-                                </svg>
-                                <span className="text-sm font-medium ml-3 lg:opacity-0 lg:navbar-expanded:opacity-100 2xl:opacity-100 duration-200">Analytics</span>
-                            </div>
-                            </Link>
-                        </li>
-                        
-                        {/* Product */}
-                        <SidebarLinkGroup activecondition={pathname.includes('product')}>
-                            {(handleClick, open) => {
-                            return (
-                                <Fragment>
-                                    <Link to="/product" className={`block text-gray-200 hover:text-white truncate transition duration-150 ${pathname.includes('product') && 'hover:text-gray-200'}`} onClick={(e) => { e.preventDefault(); navbarExpanded ? handleClick() : setNavbarExpanded(true) }}>
-                                        <div className="flex items-center justify-between">
-                                        <div className="flex items-center">
-                                            <svg className="shrink-0 h-6 w-6" viewBox="0 0 24 24">
-                                            <path className={`fill-current text-gray-400 ${pathname.includes('product') && 'text-indigo-300'}`} d="M13 15l11-7L11.504.136a1 1 0 00-1.019.007L0 7l13 8z" />
-                                            <path className={`fill-current text-gray-700 ${pathname.includes('product') && '!text-indigo-600'}`} d="M13 15L0 7v9c0 .355.189.685.496.864L13 24v-9z" />
-                                            <path className={`fill-current text-gray-600 ${pathname.includes('product') && 'text-indigo-500'}`} d="M13 15.047V24l10.573-7.181A.999.999 0 0024 16V8l-11 7.047z" />
-                                            </svg>
-                                            <span className="text-sm font-medium ml-3 lg:opacity-0 lg:navbar-expanded:opacity-100 2xl:opacity-100 duration-200">Products</span>
-                                        </div>
-                                        {/* Icon */}
-                                        <div className="flex shrink-0 ml-2">
-                                            <svg className={`w-3 h-3 shrink-0 ml-1 fill-current text-gray-400 ${open && 'transform rotate-180'}`} viewBox="0 0 12 12">
-                                            <path d="M5.9 11.4L.5 6l1.4-1.4 4 4 4-4L11.3 6z" />
-                                            </svg>
-                                        </div>
-                                        </div>
-                                    </Link>
-                                    <div className="lg:hidden lg:navbar-expanded:block 2xl:block">
-                                        <ul className={`pl-9 mt-1 ${!open && 'hidden'}`}>
-                                        <li className="mb-1 last:mb-0">
-                                            <Link to="/products" className="block text-gray-400 hover:text-gray-200 transition duration-150 truncate">
-                                            <span className="text-sm font-medium lg:opacity-0 lg:navbar-expanded:opacity-100 2xl:opacity-100 duration-200">All Product</span>
-                                            </Link>
-                                        </li>
-                                        <li className="mb-1 last:mb-0">
-                                            <Link to="/add-product" className="block text-gray-400 hover:text-gray-200 transition duration-150 truncate">
-                                            <span className="text-sm font-medium lg:opacity-0 lg:navbar-expanded:opacity-100 2xl:opacity-100 duration-200">Add Product</span>
-                                            </Link>
-                                        </li>
-                                        <li className="mb-1 last:mb-0">
-                                            <Link to="/edit-product" className="block text-gray-400 hover:text-gray-200 transition duration-150 truncate">
-                                            <span className="text-sm font-medium lg:opacity-0 lg:navbar-expanded:opacity-100 2xl:opacity-100 duration-200">Edit Product</span>
-                                            </Link>
-                                        </li>
-                                        </ul>
-                                    </div>
-                                </Fragment>
-                            );
-                            }}
-                        </SidebarLinkGroup>
                         
                     </ul>
                 </div>

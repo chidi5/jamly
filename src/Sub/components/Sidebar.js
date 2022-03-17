@@ -118,12 +118,12 @@ function Sidebar({
                 </Link>
               </li>
               {/* Orders */}
-              <li className={`px-3 py-2 rounded-sm mb-0.5 last:mb-0 ${pathname.includes('orders') && 'bg-gray-900'}`}>
-                <Link to="/sales/orders" className={`block text-gray-200 hover:text-white truncate transition duration-150 ${pathname.includes('orders') && 'hover:text-gray-200'}`}>
+              <li className={`px-3 py-2 rounded-sm mb-0.5 last:mb-0 ${pathname === '/admin/order' && 'bg-gray-900'}`}>
+                <Link to="/admin/order" className={`block text-gray-200 hover:text-white truncate transition duration-150 ${pathname.includes('orders') && 'hover:text-gray-200'}`}>
                   <div className="flex items-center">
                     <svg className="shrink-0 h-6 w-6" viewBox="0 0 24 24">
-                      <path className={`fill-current text-gray-600 ${pathname.includes('orders') && 'text-indigo-500'}`} d="M20 7a.75.75 0 01-.75-.75 1.5 1.5 0 00-1.5-1.5.75.75 0 110-1.5 1.5 1.5 0 001.5-1.5.75.75 0 111.5 0 1.5 1.5 0 001.5 1.5.75.75 0 110 1.5 1.5 1.5 0 00-1.5 1.5A.75.75 0 0120 7zM4 23a.75.75 0 01-.75-.75 1.5 1.5 0 00-1.5-1.5.75.75 0 110-1.5 1.5 1.5 0 001.5-1.5.75.75 0 111.5 0 1.5 1.5 0 001.5 1.5.75.75 0 110 1.5 1.5 1.5 0 00-1.5 1.5A.75.75 0 014 23z" />
-                      <path className={`fill-current text-gray-400 ${pathname.includes('orders') && 'text-indigo-300'}`} d="M17 23a1 1 0 01-1-1 4 4 0 00-4-4 1 1 0 010-2 4 4 0 004-4 1 1 0 012 0 4 4 0 004 4 1 1 0 010 2 4 4 0 00-4 4 1 1 0 01-1 1zM7 13a1 1 0 01-1-1 4 4 0 00-4-4 1 1 0 110-2 4 4 0 004-4 1 1 0 112 0 4 4 0 004 4 1 1 0 010 2 4 4 0 00-4 4 1 1 0 01-1 1z" />
+                      <path className={`fill-current text-gray-600 ${pathname === '/admin/order' && 'text-indigo-500'}`} d="M20 7a.75.75 0 01-.75-.75 1.5 1.5 0 00-1.5-1.5.75.75 0 110-1.5 1.5 1.5 0 001.5-1.5.75.75 0 111.5 0 1.5 1.5 0 001.5 1.5.75.75 0 110 1.5 1.5 1.5 0 00-1.5 1.5A.75.75 0 0120 7zM4 23a.75.75 0 01-.75-.75 1.5 1.5 0 00-1.5-1.5.75.75 0 110-1.5 1.5 1.5 0 001.5-1.5.75.75 0 111.5 0 1.5 1.5 0 001.5 1.5.75.75 0 110 1.5 1.5 1.5 0 00-1.5 1.5A.75.75 0 014 23z" />
+                      <path className={`fill-current text-gray-400 ${pathname === '/admin/order' && 'text-indigo-300'}`} d="M17 23a1 1 0 01-1-1 4 4 0 00-4-4 1 1 0 010-2 4 4 0 004-4 1 1 0 012 0 4 4 0 004 4 1 1 0 010 2 4 4 0 00-4 4 1 1 0 01-1 1zM7 13a1 1 0 01-1-1 4 4 0 00-4-4 1 1 0 110-2 4 4 0 004-4 1 1 0 112 0 4 4 0 004 4 1 1 0 010 2 4 4 0 00-4 4 1 1 0 01-1 1z" />
                     </svg>
                     <span className="text-sm font-medium ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Orders</span>
                   </div>
@@ -158,96 +158,32 @@ function Sidebar({
                 <span className="lg:hidden lg:sidebar-expanded:block 2xl:block">Catalog</span>
               </h3>
               {/* Product */}
-              <SidebarLinkGroup activecondition={pathname.includes('product')}>
-                {(handleClick, open) => {
-                  return (
-                    <React.Fragment>
-                      <Link to="/product" className={`block text-gray-200 hover:text-white truncate transition duration-150 ${pathname.includes('product') && 'hover:text-gray-200'}`} onClick={(e) => { e.preventDefault(); sidebarExpanded ? handleClick() : setSidebarExpanded(true) }}>
-                        <div className="flex items-center justify-between">
-                          <div className="flex items-center">
-                            <svg className="shrink-0 h-6 w-6" viewBox="0 0 24 24">
-                              <path className={`fill-current text-gray-400 ${pathname.includes('product') && 'text-indigo-300'}`} d="M13 15l11-7L11.504.136a1 1 0 00-1.019.007L0 7l13 8z" />
-                              <path className={`fill-current text-gray-700 ${pathname.includes('product') && '!text-indigo-600'}`} d="M13 15L0 7v9c0 .355.189.685.496.864L13 24v-9z" />
-                              <path className={`fill-current text-gray-600 ${pathname.includes('product') && 'text-indigo-500'}`} d="M13 15.047V24l10.573-7.181A.999.999 0 0024 16V8l-11 7.047z" />
-                            </svg>
-                            <span className="text-sm font-medium ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Products</span>
-                          </div>
-                          {/* Icon */}
-                          <div className="flex shrink-0 ml-2">
-                            <svg className={`w-3 h-3 shrink-0 ml-1 fill-current text-gray-400 ${open && 'transform rotate-180'}`} viewBox="0 0 12 12">
-                              <path d="M5.9 11.4L.5 6l1.4-1.4 4 4 4-4L11.3 6z" />
-                            </svg>
-                          </div>
-                        </div>
-                      </Link>
-                      <div className="lg:hidden lg:sidebar-expanded:block 2xl:block">
-                        <ul className={`pl-9 mt-1 ${!open && 'hidden'}`}>
-                          <li className="mb-1 last:mb-0">
-                            <Link to="/products" className="block text-gray-400 hover:text-gray-200 transition duration-150 truncate">
-                              <span className="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">All Product</span>
-                            </Link>
-                          </li>
-                          <li className="mb-1 last:mb-0">
-                            <Link to="/add-product" className="block text-gray-400 hover:text-gray-200 transition duration-150 truncate">
-                              <span className="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Add Product</span>
-                            </Link>
-                          </li>
-                          <li className="mb-1 last:mb-0">
-                            <Link to="/edit-product" className="block text-gray-400 hover:text-gray-200 transition duration-150 truncate">
-                              <span className="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Edit Product</span>
-                            </Link>
-                          </li>
-                        </ul>
-                      </div>
-                    </React.Fragment>
-                  );
-                }}
-              </SidebarLinkGroup>
+              <li className={`px-3 py-2 rounded-sm mb-0.5 last:mb-0 ${pathname === '/admin/product' && 'bg-gray-900'}`}>
+                <Link to="/admin/product" className={`block text-gray-200 hover:text-white truncate transition duration-150 ${pathname.includes('product') && 'hover:text-gray-200'}`}>
+                  <div className="flex items-center">
+                    <svg className="shrink-0 h-6 w-6" viewBox="0 0 24 24">
+                      <path className={`fill-current text-gray-400 ${pathname.includes('product') && 'text-indigo-300'}`} d="M13 15l11-7L11.504.136a1 1 0 00-1.019.007L0 7l13 8z" />
+                      <path className={`fill-current text-gray-700 ${pathname.includes('product') && '!text-indigo-600'}`} d="M13 15L0 7v9c0 .355.189.685.496.864L13 24v-9z" />
+                      <path className={`fill-current text-gray-600 ${pathname.includes('product') && 'text-indigo-500'}`} d="M13 15.047V24l10.573-7.181A.999.999 0 0024 16V8l-11 7.047z" />
+                    </svg>
+                    <span className="text-sm font-medium ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Products Manager</span>
+                  </div>
+                </Link>
+              </li>
               {/* Category */}
-              <SidebarLinkGroup activecondition={pathname.includes('category')}>
-                {(handleClick, open) => {
-                  return (
-                    <React.Fragment>
-                      <Link to="/category" className={`block text-gray-200 hover:text-white truncate transition duration-150 ${pathname.includes('team') && 'hover:text-gray-200'}`} onClick={(e) => { e.preventDefault(); sidebarExpanded ? handleClick() : setSidebarExpanded(true) }}>
-                        <div className="flex items-center justify-between">
-                          <div className="flex items-center">
-                            <svg className="shrink-0 h-6 w-6" viewBox="0 0 24 24">
-                              <path className={`fill-current text-gray-600 ${pathname.includes('category') && 'text-indigo-500'}`} d="M18.974 8H22a2 2 0 012 2v6h-2v5a1 1 0 01-1 1h-2a1 1 0 01-1-1v-5h-2v-6a2 2 0 012-2h.974zM20 7a2 2 0 11-.001-3.999A2 2 0 0120 7zM2.974 8H6a2 2 0 012 2v6H6v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5H0v-6a2 2 0 012-2h.974zM4 7a2 2 0 11-.001-3.999A2 2 0 014 7z" />
-                              <path className={`fill-current text-gray-400 ${pathname.includes('category') && 'text-indigo-300'}`} d="M12 6a3 3 0 110-6 3 3 0 010 6zm2 18h-4a1 1 0 01-1-1v-6H6v-6a3 3 0 013-3h6a3 3 0 013 3v6h-3v6a1 1 0 01-1 1z" />
-                            </svg>
-                            <span className="text-sm font-medium ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Category</span>
-                          </div>
-                          {/* Icon */}
-                          <div className="flex shrink-0 ml-2">
-                            <svg className={`w-3 h-3 shrink-0 ml-1 fill-current text-gray-400 ${open && 'transform rotate-180'}`} viewBox="0 0 12 12">
-                              <path d="M5.9 11.4L.5 6l1.4-1.4 4 4 4-4L11.3 6z" />
-                            </svg>
-                          </div>
-                        </div>
-                      </Link>
-                      <div className="lg:hidden lg:sidebar-expanded:block 2xl:block">
-                        <ul className={`pl-9 mt-1 ${!open && 'hidden'}`}>
-                          <li className="mb-1 last:mb-0">
-                            <Link to="/category" className="block text-gray-400 hover:text-gray-200 transition duration-150 truncate">
-                              <span className="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">All Category</span>
-                            </Link>
-                          </li>
-                          <li className="mb-1 last:mb-0">
-                            <Link to="/add-category" className="block text-gray-400 hover:text-gray-200 transition duration-150 truncate">
-                              <span className="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Add Category</span>
-                            </Link>
-                          </li>
-                          <li className="mb-1 last:mb-0">
-                            <Link to="/edit-category" className="block text-gray-400 hover:text-gray-200 transition duration-150 truncate">
-                              <span className="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Edit Category</span>
-                            </Link>
-                          </li>
-                        </ul>
-                      </div>
-                    </React.Fragment>
-                  );
-                }}
-              </SidebarLinkGroup>
+              <li className={`px-3 py-2 rounded-sm mb-0.5 last:mb-0 ${pathname === '/admin/category' && 'bg-gray-900'}`}>
+                <Link to="/admin/category" className={`block text-gray-200 hover:text-white truncate transition duration-150 ${pathname.includes('category') && 'hover:text-gray-200'}`}>
+                  <div className="flex items-center">
+                    <svg className="shrink-0 h-6 w-6" viewBox="0 0 24 24">
+                      <path className={`fill-current text-gray-400 ${pathname.includes('category') && 'text-indigo-300'}`} d="M13 15l11-7L11.504.136a1 1 0 00-1.019.007L0 7l13 8z" />
+                      <path className={`fill-current text-gray-700 ${pathname.includes('category') && '!text-indigo-600'}`} d="M13 15L0 7v9c0 .355.189.685.496.864L13 24v-9z" />
+                      <path className={`fill-current text-gray-600 ${pathname.includes('category') && 'text-indigo-500'}`} d="M13 15.047V24l10.573-7.181A.999.999 0 0024 16V8l-11 7.047z" />
+                    </svg>
+                    <span className="text-sm font-medium ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Category</span>
+                  </div>
+                </Link>
+              </li>
+              
               <h3 className="text-xs uppercase text-gray-500 font-semibold pl-3 mb-3 mt-3">
                 <span className="hidden lg:block lg:sidebar-expanded:hidden 2xl:hidden text-center w-6" aria-hidden="true">•••</span>
                 <span className="lg:hidden lg:sidebar-expanded:block 2xl:block">Settings</span>

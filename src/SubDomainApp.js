@@ -4,6 +4,7 @@ import Main from './Sub/components/Main';
 
 
 function SubDomainApp({subDomain}) {
+
   return (
     <Router>
       <Main subDomain={subDomain} />

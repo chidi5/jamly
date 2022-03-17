@@ -51,7 +51,8 @@ function HomeScreen() {
         } else {
             //navigate('/admin/account-setup')
             window.location.assign(`${window.location.protocol}//joshuaigbokwe.shop/store_login`)
-            console.log('e no work')
+            //window.location.assign(`${window.location.protocol}//localhost.me:3000/store_login`)
+            //console.log(`${window.location.protocol}//localhost.me:3000/store_login`)
             //window.location.reload();
         }
 
@@ -63,10 +64,9 @@ function HomeScreen() {
             { loading ?
                 <Loader />
                 : error ? <Message variant='red'>{error}</Message>
-                :
-                <div>
-                    { admin &&  <WelcomeBanner store={admin.store_data} />}
-                    { admin && 
+                : admin &&
+                (<div>
+                    <WelcomeBanner store={admin.store_data} />
                     <div className="grid grid-cols-12 gap-6">
                         {/* First Card */}
                         <div className="col-span-12 sm:col-span-6 xl:col-span-3">
@@ -81,8 +81,8 @@ function HomeScreen() {
                                         <div className="text-sm font-semibold text-white px-1.5 bg-green-500 rounded-full">+49%</div>
                                     </div>
                                 </div>
-                                <div className="text-3xl font-medium leading-8 mt-6 text-gray-800">4.710</div>
-                                <div className="text-base text-gray-600 mt-1">Item Sales</div>
+                                <div className="text-3xl font-medium leading-8 mt-6 text-gray-800">&#8358;{admin.all_time_sales.total_price__sum ? admin.all_time_sales.total_price__sum : 0}</div>
+                                <div className="text-base text-gray-600 mt-1">Total Sales</div>
                             </div>
                         </div>
                         {/* Second Card */}
@@ -98,8 +98,8 @@ function HomeScreen() {
                                         <div className="text-sm font-semibold text-white px-1.5 bg-green-500 rounded-full">+1.5%</div>
                                     </div>
                                 </div>
-                                <div className="text-3xl font-medium leading-8 mt-6 text-gray-800">3</div>
-                                <div className="text-base text-gray-600 mt-1">Total Product</div>
+                                <div className="text-3xl font-medium leading-8 mt-6 text-gray-800">&#8358;{admin.daily_sales.total_price__sum ? admin.daily_sales.total_price__sum : 0}</div>
+                                <div className="text-base text-gray-600 mt-1">Daily Sales</div>
                             </div>
                         </div>
                         {/* Third Card */}
@@ -114,7 +114,7 @@ function HomeScreen() {
                                         <div className="text-sm font-semibold text-white px-1.5 bg-yellow-500 rounded-full">-2%</div>
                                     </div>
                                 </div>
-                                <div className="text-3xl font-medium leading-8 mt-6 text-gray-800">10</div>
+                                <div className="text-3xl font-medium leading-8 mt-6 text-gray-800">{admin.new_orders.length}</div>
                                 <div className="text-base text-gray-600 mt-1">New Orders</div>
                             </div>
                         </div>
@@ -148,8 +148,7 @@ function HomeScreen() {
                         <LatestOrder />
 
                     </div>
-                    }
-                </div>
+                </div>)
             }
         </ScreenContainer>
     )

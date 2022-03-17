@@ -28,18 +28,18 @@ function StoreLogin({
     const userLogin = useSelector(state => state.userLogin)
     const { error: errorLogin, isComplete, userInfo } = userLogin
 
-    console.log(isComplete)
+    //console.log(isComplete)
 
     useEffect(() => {
         if (userInfo) {
             if (isComplete) {
-                //window.location.assign(`${window.location.protocol}//${userInfo.store_details.sub_domain}.joshuaigbokwe.shop/admin`)
+                window.location.assign(`${window.location.protocol}//${userInfo.store_details.sub_domain}.joshuaigbokwe.shop/admin`)
                 //navigate(redirect)
-                console.log(isComplete)
-                console.log(`${window.location.protocol}//${userInfo.store_details.sub_domain}.${window.location.host}/admin`)
+                //console.log(isComplete)
+                //console.log(`${window.location.protocol}//${userInfo.store_details.sub_domain}.${window.location.host}/admin`)
             }else {
                 const domain = userInfo.store_details.sub_domain
-                console.log('setup_login')
+                //console.log('setup_login')
                 window.location.assign(`${window.location.protocol}//${domain}.joshuaigbokwe.shop/admin/account-setup`)
             } 
         }/*

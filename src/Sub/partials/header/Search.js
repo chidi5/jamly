@@ -36,7 +36,7 @@ function Search() {
       <button
         ref={trigger}
         className={`w-8 h-8 flex items-center justify-center bg-gray-100 hover:bg-gray-200 transition duration-150 rounded-full ml-3 ${searchOpen && 'bg-gray-200'}`}
-        onClick={() => { setSearchOpen(!searchOpen); setImmediate(() => searchInput.current.focus()); }}
+        onClick={() => { setSearchOpen(!searchOpen);}}
         aria-controls="search-modal"
       >
         <span className="sr-only">Search</span>
