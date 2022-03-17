@@ -133,7 +133,7 @@ function Cart({
                                                                     <p className="mt-1 text-sm text-gray-500">color</p>
                                                                     </div>
                                                                     <div className="flex-1 flex items-end justify-between text-sm">
-                                                                        <div className="flex flex-row h-8 w-1/2 rounded-lg relative bg-transparent mt-1 items-center">
+                                                                        <div className="h-8 w-1/2 rounded-lg relative bg-transparent mt-1 items-center">
                                                                             <p className="text-gray-500 mr-3">Qty</p>
                                                                             <button data-action="decrement" onClick={() => decrement(i, item.product)} className="bg-gray-200 text-gray-500 hover:text-gray-700 hover:bg-gray-400 h-full w-20 rounded-l cursor-pointer outline-none">
                                                                                 <span className="m-auto text-2xl font-thin">−</span>
@@ -153,7 +153,7 @@ function Cart({
                                                                             </button>
                                                                         </div>
 
-                                                                        <div className="flex">
+                                                                        <div>
                                                                             <button 
                                                                             type="button" 
                                                                             className="font-medium text-indigo-600 hover:text-indigo-500"
