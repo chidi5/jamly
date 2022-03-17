@@ -138,7 +138,7 @@ function ProductScreen({subDomain}) {
                         :
                         <h1 className='text-xl mt-3 pb-5 border-b border-gray-400'>No Reviews</h1>
                     }
-                    <form className='ml-5'>
+                    <form className='md:ml-5'>
                         <h1 className='text-xl mt-5 mb-3 uppercase'>Write Review</h1>
                         <label className='text-sm font-normal text-gray-500'>Rating</label>
                         <select
