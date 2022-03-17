@@ -135,22 +135,24 @@ function Cart({
                                                                     <div className="flex-1 flex items-end justify-between text-sm">
                                                                         <div className="h-8 w-1/2 rounded-lg relative bg-transparent mt-1 items-center">
                                                                             <p className="text-gray-500 mr-3">Qty</p>
-                                                                            <button data-action="decrement" onClick={() => decrement(i, item.product)} className="bg-gray-200 text-gray-500 hover:text-gray-700 hover:bg-gray-400 h-full w-20 rounded-l cursor-pointer outline-none">
-                                                                                <span className="m-auto text-2xl font-thin">−</span>
-                                                                            </button>
-                                                                            <input
-                                                                            type="number"
-                                                                            className="px-0 py-1 outline-none border-0 focus:outline-none focus:border-0 focus:ring-0 text-center w-full bg-gray-200 font-semibold text-md hover:text-black focus:text-black md:text-basecursor-default flex text-gray-500"
-                                                                            name="custom-input-number"
-                                                                            min='1'
-                                                                            max={item.num_products} 
-                                                                            value={item.qty}
-                                                                            ref={myRef.current[i]}
-                                                                            onChange={(e) => dispatch(addToCart(item.product, Number(myRef.current[i].current.value)))}
-                                                                            />
-                                                                            <button data-action="increment" onClick={() => increment(i, item.product)} className="bg-gray-200 text-gray-500 hover:text-gray-700 hover:bg-gray-400 h-full w-20 rounded-r cursor-pointer">
-                                                                                <span className="m-auto text-2xl font-thin">+</span>
-                                                                            </button>
+                                                                            <div className='flex'>
+                                                                                <button data-action="decrement" onClick={() => decrement(i, item.product)} className="bg-gray-200 text-gray-500 hover:text-gray-700 hover:bg-gray-400 h-full w-20 rounded-l cursor-pointer outline-none">
+                                                                                    <span className="m-auto text-2xl font-thin">−</span>
+                                                                                </button>
+                                                                                <input
+                                                                                type="number"
+                                                                                className="px-0 py-1 outline-none border-0 focus:outline-none focus:border-0 focus:ring-0 text-center w-full bg-gray-200 font-semibold text-md hover:text-black focus:text-black md:text-basecursor-default flex text-gray-500"
+                                                                                name="custom-input-number"
+                                                                                min='1'
+                                                                                max={item.num_products} 
+                                                                                value={item.qty}
+                                                                                ref={myRef.current[i]}
+                                                                                onChange={(e) => dispatch(addToCart(item.product, Number(myRef.current[i].current.value)))}
+                                                                                />
+                                                                                <button data-action="increment" onClick={() => increment(i, item.product)} className="bg-gray-200 text-gray-500 hover:text-gray-700 hover:bg-gray-400 h-full w-20 rounded-r cursor-pointer">
+                                                                                    <span className="m-auto text-2xl font-thin">+</span>
+                                                                                </button>
+                                                                            </div>
                                                                         </div>
 
                                                                         <div>
