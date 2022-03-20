@@ -13,7 +13,7 @@ console.log(host)
 if(host.length >= 3 && host.length <= 4){
   let subDomain = host[0];
   let second = host[1];
-  if (subDomain === 'www' && second !== 'joshuaigbokwe.shop') {
+  if ((subDomain === 'www') && (second !== 'joshuaigbokwe.shop')) {
     subDomain = second;
     ReactDOM.render(
       <Provider store={store}>
@@ -21,7 +21,7 @@ if(host.length >= 3 && host.length <= 4){
       </Provider>,
       document.getElementById('root')
     );
-  }else if (subDomain === 'www' && second === 'joshuaigbokwe.shop' ) {
+  }else if ((subDomain === 'www') && (second === 'joshuaigbokwe.shop') ) {
     ReactDOM.render(
       <Provider store={store}>
         <App />
