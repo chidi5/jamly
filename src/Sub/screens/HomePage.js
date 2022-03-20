@@ -36,7 +36,7 @@ function HomePage({subDomain}) {
                 <div>
                     <div className='bg-pink-600 min-h-[400px] w-full'>
                         <div className='absolute'>
-                            <div className='bg-white w-72 h-72 ml-40 my-14'>
+                            <div className='bg-white w-72 h-72 ml-10 md:ml-40 my-14'>
                                 <div className='p-7'>
                                     <h1 className='text-gray-800 text-3xl font-bold'>{`Welcome to ${store.store_data.name}`}</h1>
                                     <p className='mt-5 mb-5'>Get up to 20% of our clothes this period. Use code: Harmattan</p>
