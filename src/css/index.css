@@ -11,6 +11,10 @@
 @import 'additional-styles/flatpickr.scss';
 @import 'additional-styles/theme.scss';
 
+html, body {
+    min-height: 100%;
+}
+
 body {
     font-family: Inter, Lato sans-serif;
     background-repeat: no-repeat;
