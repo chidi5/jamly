@@ -11,23 +11,24 @@ import reportWebVitals from './reportWebVitals';
 const host = window.location.host.split(".");
 console.log(host)
 if(host.length >= 3 && host.length <= 4){
-  let subDomain = host[0];
-  let second = host[1];
-  if ((subDomain === 'www') && (second !== 'joshuaigbokwe.shop')) {
-    subDomain = second;
-    ReactDOM.render(
-      <Provider store={store}>
-        <SubDomainApp subDomain={subDomain} />
-      </Provider>,
-      document.getElementById('root')
-    );
-  }else if ((subDomain === 'www') && (second === 'joshuaigbokwe.shop') ) {
-    ReactDOM.render(
-      <Provider store={store}>
-        <App />
-      </Provider>,
-      document.getElementById('root')
-    );
+  const subDomain = host[0];
+  const SecDomain = host[1];
+  if (subDomain === 'www') {
+    if (SecDomain === 'joshuaigbokwe') {
+      ReactDOM.render(
+        <Provider store={store}>
+          <App />
+        </Provider>,
+        document.getElementById('root')
+      );
+    }else {
+      ReactDOM.render(
+        <Provider store={store}>
+          <SubDomainApp subDomain={SecDomain} />
+        </Provider>,
+        document.getElementById('root')
+      );
+    }
   }else {
     ReactDOM.render(
       <Provider store={store}>
