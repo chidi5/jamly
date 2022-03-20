@@ -49,7 +49,7 @@ function HomePage({subDomain}) {
                         <h1 className='text-gray-800 font-medium text-lg mt-10 mb-4 leading-4'>New Arrivals</h1>
                             <div className="grid grid-cols-12 gap-4">
                                 {store.store_products.map(product => (
-                                    <div key={product._id} className="col-span-6 sm:col-span-4 md:col-span-3 xl:col-span-3 shadow-gray-300">
+                                    <div key={product._id} className="col-span-6 sm:col-span-4 md:col-span-3 xl:col-span-3 shadow-gray-400">
                                         <Product product={product} />
                                     </div>
                                 ))}
