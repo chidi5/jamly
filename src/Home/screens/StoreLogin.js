@@ -3,7 +3,7 @@ import { Link, useLocation } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import Background from '../../static/images/background.svg'
 import Message from '../components/Message'
-import { register } from '../../actions/user'
+import { logout, register } from '../../actions/user'
 import { login } from '../../actions/user'
 
 
@@ -20,7 +20,10 @@ function StoreLogin({
     const [message, setMessage] = useState('')
 
     const dispatch = useDispatch()
-    const { pathname } = useLocation()
+    const { pathname, search } = useLocation()
+
+    const isLogOutUrl = new URLSearchParams(search).get("isLogout")
+    const isLogout = isLogOutUrl ? isLogOutUrl : null
 
     const userRegister = useSelector(state => state.userRegister)
     const { error } = userRegister
@@ -42,7 +45,11 @@ function StoreLogin({
                 //console.log('setup_login')
                 window.location.assign(`${window.location.protocol}//${domain}.joshuaigbokwe.shop/admin/account-setup`)
             } 
-        }/*
+        }
+        if (isLogout) {
+            dispatch(logout())
+        }
+        /*
         if (userInfoReg) {
             if (userInfoReg.user_details.profile_complete) {
                 //window.location.assign(`${window.location.protocol}//${userInfoReg.store_details.sub_domain}.joshuaigbokwe.shop/admin`)

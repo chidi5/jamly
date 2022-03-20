@@ -40,7 +40,7 @@ function AccountSetup() {
     useEffect(() => {
         console.log(isComplete)
         if (isComplete) {
-            navigate('/admin?profile=true')
+            navigate('/admin')
         }
         setId(userInfo ? userInfo.user_details.id : window.location.reload())
         console.log(id)

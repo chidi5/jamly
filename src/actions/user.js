@@ -1,6 +1,5 @@
 import axios from 'axios'
 import Cookies from 'js-cookie'
-import { useLocation } from 'react-router-dom'
 import {
     USER_LOGIN_REQUEST,
     USER_LOGIN_SUCCESS,
@@ -61,16 +60,10 @@ export const login = (email, password) => async (dispatch) => {
 
 
 export const logout = () => (dispatch) => {
-    const { pathname } = useLocation()
     localStorage.removeItem('userInfo')
     localStorage.removeItem('isComplete')
     Cookies.remove('userInfo', { path: '/',  domain: '.joshuaigbokwe.shop' });
     //localStorage.setItem('clear', 'yes')
-    if (localStorage.getItem('userinfo')){
-        if(pathname === '/store_login'){
-            localStorage.removeItem('userInfo')
-        }
-    }
     dispatch({ type: USER_LOGOUT })
     dispatch({ type: USER_DETAILS_RESET })
     //dispatch({ type: ORDER_LIST_MY_RESET })

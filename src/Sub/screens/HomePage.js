@@ -18,6 +18,11 @@ function HomePage({subDomain}) {
     useEffect(() => {
         dispatch(loadStore(subDomain))
 
+        document.body.style.backgroundColor= '#ffffff'
+        return() => {
+            document.body.style.backgroundColor= 'none'
+        }
+
     }, [dispatch, subDomain])
 
 

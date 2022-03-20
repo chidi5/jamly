@@ -19,10 +19,11 @@ function HomeScreen() {
     const dispatch = useDispatch()
     const { search } = useLocation()
 
-    const isCompUrl = new URLSearchParams(search).get("profile")
-    const isComp = isCompUrl ? isCompUrl : null
+    //const isCompUrl = new URLSearchParams(search).get("profile")
+    //const isComp = isCompUrl ? isCompUrl : null
 
-    console.log(isComp)
+    const isLogOutUrl = new URLSearchParams(search).get("logout")
+    const isLogout = isLogOutUrl ? isLogOutUrl : null
 
     const userLogin = useSelector(state => state.userLogin)
     const { userInfo } = userLogin
@@ -50,13 +51,17 @@ function HomeScreen() {
             console.log('good to go')
         } else {
             //navigate('/admin/account-setup')
-            window.location.assign(`${window.location.protocol}//joshuaigbokwe.shop/store_login`)
+            {isLogout ?
+                window.location.assign(`${window.location.protocol}//joshuaigbokwe.shop/store_login/?isLogout=true`)
+                :
+                window.location.assign(`${window.location.protocol}//joshuaigbokwe.shop/store_login`)
+            }
             //window.location.assign(`${window.location.protocol}//localhost.me:3000/store_login`)
             //console.log(`${window.location.protocol}//localhost.me:3000/store_login`)
             //window.location.reload();
         }
 
-    }, [dispatch, userInfo, isComp, isComplete])
+    }, [dispatch, userInfo, isComplete])
 
 
     return (

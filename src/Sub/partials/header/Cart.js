@@ -91,7 +91,7 @@ function Cart({
                                             <div className="ml-3 h-7 flex items-center">
                                                 <button
                                                 type="button"
-                                                className="-m-2 p-2 text-gray-400 hover:text-gray-500"
+                                                className="-m-2 p-2 text-gray-400 hover:text-gray-500 focus:outline-none border-0 focus:border-0"
                                                 onClick={() => setOpen(!open)}
                                                 >
                                                     <span className="sr-only">Close panel</span>
@@ -133,9 +133,9 @@ function Cart({
                                                                     <p className="mt-1 text-sm text-gray-500">color</p>
                                                                     </div>
                                                                     <div className="flex-1 flex items-end justify-between text-sm">
-                                                                        <div className="h-8 w-1/2 rounded-lg relative bg-transparent mt-1 items-center">
-                                                                            <p className="text-gray-500 mr-3">Qty</p>
-                                                                            <div className='flex'>
+                                                                        <div className="inline-flex w-40 rounded-lg relative bg-transparent mt-1 items-center">
+                                                                            <p className="text-gray-500 mr-3 inline-flex">Qty</p>
+                                                                            <div className='inline-flex w-1/2'>
                                                                                 <button data-action="decrement" onClick={() => decrement(i, item.product)} className="bg-gray-200 text-gray-500 hover:text-gray-700 hover:bg-gray-400 h-full w-20 rounded-l cursor-pointer outline-none">
                                                                                     <span className="m-auto text-2xl font-thin">−</span>
                                                                                 </button>
