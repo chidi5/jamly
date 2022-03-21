@@ -13,6 +13,7 @@ import { listAdmin } from '../../actions/admin'
 import Cookies from 'js-cookie'
 import Message from '../../Home/components/Message'
 import Loader from '../components/Loader'
+import { ArrowLeftIcon, ArrowNarrowRightIcon, XIcon } from '@heroicons/react/outline'
 
 function HomeScreen() {
 
@@ -78,12 +79,13 @@ function HomeScreen() {
                 (<div>
                     <WelcomeBanner store={admin.store_data} />
                     {/* Dashboard actions */}
-                    <div className="sm:flex sm:justify-between sm:items-center mb-8">
+                    <div className="sm:flex justify-end sm:items-center mb-8">
                         {/* Right: Actions */}
                         <div className="grid grid-flow-col sm:auto-cols-max justify-start sm:justify-end gap-2">
                             {/* Add view button */}
                             <button className="btn bg-indigo-500 hover:bg-indigo-600 text-white" onClick={goToStoreFront}>
                                 <span className="xs:block ml-2">Storefront</span>
+                                <ArrowNarrowRightIcon className='w-4 h-4 fill-current opacity-50 shrink-0'/>
                             </button>
                         </div>
                     </div>
