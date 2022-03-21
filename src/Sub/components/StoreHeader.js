@@ -60,7 +60,7 @@ function StoreHeader({
                             <div className='hidden md:block'>
                                 <Search />
                             </div>
-                            <div className="relative inline-flex">
+                            <div className="relative inline-flex ml-3">
                                 <button
                                     className={`w-8 h-8 flex items-center justify-center bg-gray-100 hover:bg-gray-200 transition duration-150 rounded-full ${open && 'bg-gray-200'}`}
                                     aria-haspopup="true"
