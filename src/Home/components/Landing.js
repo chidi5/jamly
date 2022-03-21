@@ -1,13 +1,21 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+import { logout } from '../../actions/user'
 import Hero from '../../static/images/hero.png'
 
 function Landing() {
     const navigate = useNavigate()
 
+    const userLogin = useSelector(state => state.userLogin)
+    const { userInfo } = userLogin
+
     const getStarted = () => {
         navigate('/get_started')
     }
+    const logoutHandler = () => {
+        dispatch(logout())
+    }
+
     return (
         <div className='min-h-full'>
             <header className='bg-teal-950'>
@@ -18,13 +26,19 @@ function Landing() {
                             <div className="flex">
                             </div>
                             <div className='flex items-center'>
-                                <Link to='/store_login' className='text-white'>Login</Link>
-                                {/*  Divider */}
-                                <hr className="w-px h-6 bg-gray-200 mx-3" />
-                                {/* User */}
-                                <button className="btn bg-white text-gray-800 hover:text-gray-900 font-bold" onClick={getStarted}>
-                                    <span className="xs:block">Get Started</span>
-                                </button>
+                                {userInfo ?
+                                    (<button className="btn bg-white text-gray-800 hover:text-gray-900 font-bold" onClick={logoutHandler}>
+                                        <span className="xs:block">Log Out</span>
+                                    </button>)
+                                    :
+                                    (<Fragment>
+                                        <Link to='/store_login' className='text-white'>Login</Link>
+                                        <hr className="w-px h-6 bg-gray-200 mx-3" />
+                                        <button className="btn bg-white text-gray-800 hover:text-gray-900 font-bold" onClick={getStarted}>
+                                            <span className="xs:block">Get Started</span>
+                                        </button>
+                                    </Fragment>)
+                                }
                             </div>
 
                         </div>
