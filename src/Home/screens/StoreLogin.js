@@ -29,13 +29,13 @@ function StoreLogin({
     const { error } = userRegister
 
     const userLogin = useSelector(state => state.userLogin)
-    const { error: errorLogin, isComplete, userInfo } = userLogin
+    const { error: errorLogin, userInfo } = userLogin
 
     //console.log(isComplete)
 
     useEffect(() => {
         if (userInfo) {
-            console.log(isComplete)
+            //console.log(isComplete)
             if (userInfo.user_details.profile_complete) {
                 window.location.assign(`${window.location.protocol}//${userInfo.store_details.sub_domain}.joshuaigbokwe.shop/admin`)
                 //navigate(redirect)
@@ -66,7 +66,7 @@ function StoreLogin({
         return() => {
             document.body.style.backgroundImage= 'none'
         }
-    }, [userInfo, isComplete]); // triggered on route change
+    }, [userInfo]); // triggered on route change
 
 
     const submitHandler = (e) => {
