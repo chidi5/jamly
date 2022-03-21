@@ -34,6 +34,11 @@ function StoreLogin({
     //console.log(isComplete)
 
     useEffect(() => {
+
+        if (isLogout) {
+            dispatch(logout())
+        }
+        
         if (userInfo) {
             //console.log(isComplete)
             if (userInfo.user_details.profile_complete) {
@@ -46,11 +51,7 @@ function StoreLogin({
                 //console.log('setup_login')
                 window.location.assign(`${window.location.protocol}//${domain}.joshuaigbokwe.shop/admin/account-setup`)
             } 
-        }
-        if (isLogout) {
-            dispatch(logout())
-        }
-        /*
+        }/*
         if (userInfoReg) {
             if (userInfoReg.user_details.profile_complete) {
                 //window.location.assign(`${window.location.protocol}//${userInfoReg.store_details.sub_domain}.joshuaigbokwe.shop/admin`)
