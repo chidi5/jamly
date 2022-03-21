@@ -1,10 +1,12 @@
 import React, { Fragment } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { Link, useNavigate } from 'react-router-dom'
 import { logout } from '../../actions/user'
 import Hero from '../../static/images/hero.png'
 
 function Landing() {
     const navigate = useNavigate()
+    const dispatch = useDispatch()
 
     const userLogin = useSelector(state => state.userLogin)
     const { userInfo } = userLogin
