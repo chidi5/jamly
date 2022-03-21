@@ -60,7 +60,7 @@ function StoreHeader({
                             <div className='hidden md:block'>
                                 <Search />
                             </div>
-                            <div className="relative inline-flex ml-3">
+                            <div className="relative inline-flex">
                                 <button
                                     className={`w-8 h-8 flex items-center justify-center bg-gray-100 hover:bg-gray-200 transition duration-150 rounded-full ${open && 'bg-gray-200'}`}
                                     aria-haspopup="true"
@@ -72,8 +72,8 @@ function StoreHeader({
                             </div>
                             <Cart open={open} setOpen={setOpen} />
                             {/*  Divider */}
-                            <hr className="w-px h-6 bg-gray-200 mx-3 hidden md:block" />
-                            <div className='hidden md:block'>
+                            <hr className="w-px h-6 bg-gray-200 mx-3 hidden" />
+                            <div className='hidden'>
                                 <UserMenu />
                             </div>
                         </div>

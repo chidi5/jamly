@@ -35,6 +35,7 @@ function StoreLogin({
 
     useEffect(() => {
         if (userInfo) {
+            console.log(isComplete)
             if (isComplete) {
                 window.location.assign(`${window.location.protocol}//${userInfo.store_details.sub_domain}.joshuaigbokwe.shop/admin`)
                 //navigate(redirect)
