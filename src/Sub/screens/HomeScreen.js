@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-//import { useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { useLocation } from 'react-router'
 import { useDispatch, useSelector } from 'react-redux'
 import LatestOrder from '../partials/dashboard/LatestOrder'
@@ -18,6 +18,7 @@ function HomeScreen() {
 
     const dispatch = useDispatch()
     const { search } = useLocation()
+    const navigate = useNavigate()
 
     //const isCompUrl = new URLSearchParams(search).get("profile")
     //const isComp = isCompUrl ? isCompUrl : null
@@ -63,6 +64,10 @@ function HomeScreen() {
 
     }, [dispatch, userInfo, isComplete])
 
+    const goToStoreFront = () => {
+        navigate('/')
+    }
+
 
     return (
         <ScreenContainer>
@@ -72,6 +77,16 @@ function HomeScreen() {
                 : admin &&
                 (<div>
                     <WelcomeBanner store={admin.store_data} />
+                    {/* Dashboard actions */}
+                    <div className="sm:flex sm:justify-between sm:items-center mb-8">
+                        {/* Right: Actions */}
+                        <div className="grid grid-flow-col sm:auto-cols-max justify-start sm:justify-end gap-2">
+                            {/* Add view button */}
+                            <button className="btn bg-indigo-500 hover:bg-indigo-600 text-white" onClick={goToStoreFront}>
+                                <span className="xs:block ml-2">Storefront</span>
+                            </button>
+                        </div>
+                    </div>
                     <div className="grid grid-cols-12 gap-6">
                         {/* First Card */}
                         <div className="col-span-12 sm:col-span-6 xl:col-span-3">
