@@ -81,11 +81,11 @@ function HomeScreen() {
                     {/* Dashboard actions */}
                     <div className="sm:flex justify-end sm:items-center mb-8">
                         {/* Right: Actions */}
-                        <div className="grid grid-flow-col sm:auto-cols-max justify-start sm:justify-end gap-2">
+                        <div className="grid grid-flow-col sm:auto-cols-max justify-end gap-2">
                             {/* Add view button */}
                             <button className="btn bg-indigo-500 hover:bg-indigo-600 text-white" onClick={goToStoreFront}>
-                                <span className="xs:block ml-2">Storefront</span>
-                                <ArrowNarrowRightIcon className='w-4 h-4 fill-current opacity-50 shrink-0'/>
+                                <span className="xs:block ml-2 mr-2">Storefront</span>
+                                <ArrowNarrowRightIcon className='w-5 h-5 fill-current opacity-50 shrink-0'/>
                             </button>
                         </div>
                     </div>
