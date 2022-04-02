@@ -100,9 +100,9 @@ function StoreHeader({
                     <li>
                         <Link to='/'>Home</Link>
                     </li>
-                    {category.map(item => (
+                    {category.map(cat => (
                         <li>
-                            <Link to={item.name}>{item.name}</Link>
+                            <Link to={cat.name}>{cat.name}</Link>
                         </li>
                     ))}
                 </ul>
