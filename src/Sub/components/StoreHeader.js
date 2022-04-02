@@ -22,11 +22,11 @@ function StoreHeader({
 
     const storeFront = useSelector(state => state.storeFront)
     const { store } = storeFront
-    const id = store ? store.store_data._id : 0
     
     useEffect(() => {
         if({ type: STORE_SUCCESS }) {
             //const id = store.store_data._id
+            const id = store ? store.store_data._id : 0
             console.log(id)
             dispatch(listCategory(id))
         }
@@ -36,7 +36,7 @@ function StoreHeader({
         //return() => {
         //    document.body.style.backgroundColor= 'rgb(241 245 249)'
         //}
-    }, [dispatch, store, id]); // triggered on route change
+    }, [dispatch, store]); // triggered on route change
 
     return (
         <header className='font-loader'>
