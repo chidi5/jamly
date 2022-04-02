@@ -130,8 +130,8 @@ function ProductScreen({subDomain}) {
                                 <div className='pb-8 border-b border-gray-400'>
                                     <h1>User: {item.user.first_name} {item.user.last_name}</h1>
                                     <h1>Rating: {item.rating}</h1>
-                                    <p>{item.created_at.substring(0, 10)}</p>
-                                    <p className="mt-3">{item.description}</p>
+                                    <p className="mt-3 font-medium">{item.title}</p>
+                                    <p className="mt-2">{item.description}</p>
                                 </div>
                             ))}
                         </div> 
