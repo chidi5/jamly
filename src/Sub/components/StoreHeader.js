@@ -35,7 +35,7 @@ function StoreHeader({
         //return() => {
         //    document.body.style.backgroundColor= 'rgb(241 245 249)'
         //}
-    }, [dispatch, store]); // triggered on route change
+    }, [dispatch, store, id]); // triggered on route change
 
     return (
         <header className='font-loader'>
