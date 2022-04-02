@@ -1,5 +1,6 @@
 import { ShoppingBagIcon } from '@heroicons/react/outline'
 import React, { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { listCategory } from '../../actions/product'
 import UserAvatar from '../../static/images/icon.png'
@@ -12,6 +13,7 @@ function StoreHeader({
     setNavbarOpen
   }) {
 
+    const dispatch = useDispatch()
     const [open, setOpen] = useState(false);
 
     const categoryList = useSelector(state => state.categoryList)
@@ -100,9 +102,9 @@ function StoreHeader({
                     <li>
                         <Link to='/'>Home</Link>
                     </li>
-                    {category.map(cat => (
+                    {category.map(item => (
                         <li>
-                            <Link to={cat.name}>{cat.name}</Link>
+                            <Link to={item.name}>{item.name}</Link>
                         </li>
                     ))}
                 </ul>
