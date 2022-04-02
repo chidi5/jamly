@@ -25,10 +25,11 @@ function StoreHeader({
     
     useEffect(() => {
         if({ type: STORE_SUCCESS }) {
-            //const id = store.store_data._id
-            const id = store ? store.store_data._id : 0
-            console.log(id)
-            dispatch(listCategory(id))
+            if(store){
+                const id = store.store_data._id
+                console.log(id)
+                dispatch(listCategory(id))
+            }
         }
 
 
