@@ -153,7 +153,7 @@ function HomeScreen() {
                                     </div>
                                 </div>
                                 <div className="text-3xl font-medium leading-8 mt-6 text-gray-800">200</div>
-                                <div className="text-base text-gray-600 mt-1">Unique Visitors</div>
+                                <div className="text-base text-gray-600 mt-1">Unique Customers</div>
                             </div>
                         </div>
 

@@ -7,6 +7,7 @@ import UserAvatar from '../../static/images/icon.png'
 import Cart from '../partials/header/Cart'
 import Search from '../partials/header/Search'
 import UserMenu from '../partials/header/UserMenu'
+import { STORE_SUCCESS } from '../../actions/types'
 
 function StoreHeader({
     navbarOpen,
@@ -23,8 +24,9 @@ function StoreHeader({
     const { store } = storeFront
     
     useEffect(() => {
-        if(store) {
+        if({ type: STORE_SUCCESS }) {
             const id = store.store_data._id
+            console.log(id)
             dispatch(listCategory(id))
         }
 
@@ -33,7 +35,7 @@ function StoreHeader({
         //return() => {
         //    document.body.style.backgroundColor= 'rgb(241 245 249)'
         //}
-    }, []); // triggered on route change
+    }, [dispatch, store]); // triggered on route change
 
     return (
         <header className='font-loader'>

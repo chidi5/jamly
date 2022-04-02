@@ -1,6 +1,6 @@
 import React, { Fragment, useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { Link } from 'react-router-dom'
+//import { Link } from 'react-router-dom'
 import { useParams } from 'react-router'
 import { loadStore } from '../../actions/storefront'
 import ScreenContainer from './ScreenContainer'
@@ -17,11 +17,8 @@ function ProductScreen({subDomain}) {
     const dispatch = useDispatch()
     const { id } = useParams();
 
-    const storeFront = useSelector(state => state.storeFront)
-    const { store } = storeFront
-
     const productDetails = useSelector(state => state.productDetails)
-    const { loading, error, product } = productDetails
+    const { product } = productDetails
 
     useEffect(() => {
         dispatch(loadStore(subDomain))
@@ -36,11 +33,6 @@ function ProductScreen({subDomain}) {
         }
 
     }, [dispatch, subDomain, id])
-
-    const addToCartHandler = () => {
-        //history.push(`/cart/${match.params.id}?qty=${qty}`)
-        console.log('qty:' + qty)
-    }
 
   return (
     <ScreenContainer>
