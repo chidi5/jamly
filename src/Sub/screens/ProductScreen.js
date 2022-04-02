@@ -128,10 +128,10 @@ function ProductScreen({subDomain}) {
                         <div className='ml-5 mt-3'>
                             {product.product_reviews.map(item => (
                                 <div className='pb-8 border-b border-gray-400'>
-                                    <h1>User: {item.user.first_name} {item.user.last_name}</h1>
+                                    <h1 className='font-medium'>{item.user.first_name} {item.user.last_name}</h1>
                                     <h1>Rating: {item.rating}</h1>
                                     <p className="mt-3 font-medium">{item.title}</p>
-                                    <p className="mt-2">{item.description}</p>
+                                    <p className="mt-1">{item.description}</p>
                                 </div>
                             ))}
                         </div> 
