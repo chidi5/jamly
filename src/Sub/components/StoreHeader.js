@@ -1,6 +1,7 @@
 import { ShoppingBagIcon } from '@heroicons/react/outline'
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+import { listCategory } from '../../actions/product'
 import UserAvatar from '../../static/images/icon.png'
 import Cart from '../partials/header/Cart'
 import Search from '../partials/header/Search'
@@ -13,11 +14,17 @@ function StoreHeader({
 
     const [open, setOpen] = useState(false);
 
-    //const userLogin = useSelector(state => state.userLogin)
-    //const { userInfo } = userLogin
+    const categoryList = useSelector(state => state.categoryList)
+    const { category } = categoryList
+
+    const storeFront = useSelector(state => state.storeFront)
+    const { store } = storeFront
     
     useEffect(() => {
-        
+        if(store) {
+            const id = store.store_data._id
+            dispatch(listCategory(id))
+        }
 
 
         //document.body.style.backgroundColor="#ffffff"
@@ -93,8 +100,11 @@ function StoreHeader({
                     <li>
                         <Link to='/'>Home</Link>
                     </li>
-                    <li>Shoes</li>
-                    <li>Bags</li>
+                    {category.map(item => (
+                        <li>
+                            <Link to={item.name}>{item.name}</Link>
+                        </li>
+                    ))}
                 </ul>
             </div>
         </header>
