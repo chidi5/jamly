@@ -20,7 +20,7 @@ function HomePage({subDomain}) {
 
         document.body.style.backgroundColor= '#ffffff'
         return() => {
-            document.body.style.backgroundColor= 'none'
+            document.body.style.backgroundColor= '#f1f5f9'
         }
 
     }, [dispatch, subDomain])
