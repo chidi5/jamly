@@ -72,7 +72,7 @@ function CustomerListScreen() {
                                                             </div>
                                                         </div>
                                                     </td>
-                                                    <td className='text-right pr-0'>
+                                                    <td>
                                                         <span className="font-semibold text-sm text-gray-500">{item.email}</span>
                                                     </td>
                                                 </tr>
