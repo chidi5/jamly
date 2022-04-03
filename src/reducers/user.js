@@ -13,6 +13,10 @@ import {
     USER_ACCOUNT_SUCCESS,
     USER_ACCOUNT_FAIL,
 
+    CUSTOMER_ACCOUNT_REQUEST,
+    CUSTOMER_ACCOUNT_SUCCESS,
+    CUSTOMER_ACCOUNT_FAIL,
+
 } from '../actions/types.js'
 
 const initialSate = {
@@ -69,6 +73,22 @@ export const userAccountReducer = (state = initialSate, action) => {
 
         case USER_ACCOUNT_FAIL:
             return { ...state, loading: false, isComplete:false, error: action.payload }
+
+        default:
+            return state
+    }
+}
+
+export const customerListReducer = (state = {}, action) => {
+    switch (action.type) {
+        case CUSTOMER_ACCOUNT_REQUEST:
+            return { loading: true }
+
+        case CUSTOMER_ACCOUNT_SUCCESS:
+            return { loading: false, customer: action.payload }
+
+        case CUSTOMER_ACCOUNT_FAIL:
+            return { loading: false, error: action.payload }
 
         default:
             return state

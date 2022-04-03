@@ -16,7 +16,11 @@ import {
 
     USER_ACCOUNT_REQUEST,
     USER_ACCOUNT_SUCCESS,
-    USER_ACCOUNT_FAIL
+    USER_ACCOUNT_FAIL,
+
+    CUSTOMER_ACCOUNT_REQUEST,
+    CUSTOMER_ACCOUNT_SUCCESS,
+    CUSTOMER_ACCOUNT_FAIL,
 
 } from './types'
 
@@ -144,6 +148,37 @@ export const accountComplete = (user_id, first_name, last_name, state, city, str
     } catch (error) {
         dispatch({
             type: USER_ACCOUNT_FAIL,
+            payload: error.response && error.response.data.detail
+                ? error.response.data.detail
+                : error.message,
+        })
+    }
+}
+
+export const listCustomers = (id) => async (dispatch) => {
+    
+    try {
+        dispatch({ type: CUSTOMER_ACCOUNT_REQUEST })
+
+        const config = {
+            headers: {
+                'Content-type': 'application/json'
+            }
+        }
+
+        const { data } = await axios.get(
+            `https://jamly2021.herokuapp.com/api/getstorecustomers/${id}`,
+            config
+        )
+
+        dispatch({
+            type: CUSTOMER_ACCOUNT_SUCCESS,
+            payload: data
+        })
+
+    } catch (error) {
+        dispatch({
+            type: CUSTOMER_ACCOUNT_FAIL,
             payload: error.response && error.response.data.detail
                 ? error.response.data.detail
                 : error.message,

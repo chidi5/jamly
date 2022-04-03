@@ -13,6 +13,7 @@ import ProductEdit from '../screens/ProductEdit'
 import OrderScreen from '../screens/OrderScreen'
 import CategoryListScreen from '../screens/CategoryListScreen'
 import ProductScreen from '../screens/ProductScreen'
+import CustomerListScreen from '../screens/CustomerListScreen'
 
 function PrivateLayout() {
     const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -32,6 +33,7 @@ function PrivateLayout() {
                     <Route path="/admin">
                         <Route path="" element={<HomeScreen />} />
                         <Route path="account-setup" element={<AccountSetup />} />
+                        <Route path="customer" element={<CustomerListScreen />} />
                         <Route path="category">
                             <Route path=":id/edit" element={<CategoryListScreen />} />
                             <Route path="" element={<CategoryListScreen />} />

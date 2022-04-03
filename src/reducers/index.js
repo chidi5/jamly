@@ -19,6 +19,7 @@ import {
     userLoginReducer,
     userRegisterReducer,
     userAccountReducer,
+    customerListReducer,
 } from './user'
 
 export default combineReducers({
@@ -26,6 +27,7 @@ export default combineReducers({
     userRegister: userRegisterReducer,
     userAccount: userAccountReducer,
     adminList: adminListReducer,
+    customerList: customerListReducer,
     
     cart: cartReducer,
 
