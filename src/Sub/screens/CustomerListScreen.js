@@ -29,7 +29,8 @@ function CustomerListScreen() {
                 ? (<Loader />)
                 : error
                     ? (<Message variant='red'>{error}</Message>)
-                    :(<div className='border-0 shadow-md flex flex-col relative rounded-md break-words min-w-0 pt-5 bg-white'>
+                    : customer &&
+                    (<div className='border-0 shadow-md flex flex-col relative rounded-md break-words min-w-0 pt-5 bg-white'>
                         <div className='flex flex-wrap justify-between py-0 px-9 bg-transparent gap-2 border-b-0 items-center md:gap-5'>
                             {/* card title */}
                             <div className='flex items-center m-2 ml-0 font-bold text-sm text-gray-600'>
@@ -81,8 +82,7 @@ function CustomerListScreen() {
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    )
+                    </div>)
             }
         </ScreenContainer>
     )
