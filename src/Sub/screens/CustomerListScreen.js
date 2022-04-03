@@ -53,7 +53,7 @@ function CustomerListScreen() {
                                             <tr className='text-left text-gray-400 uppercase text-xs font-semibold border-dashed border-b border-gray-100 last:pr-0 first:pl-0'>
                                                 <th className='min-w-[90px] w-[90.5px]'>Customer id</th>
                                                 <th className='min-w-[150px] w-[150px]'>Customer</th>
-                                                <th className='text-right min-w-[70px] w-[88.9px]'>email</th>
+                                                <th className='min-w-[70px] w-[88.9px]'>email</th>
                                             </tr>
                                         </thead>
                                         <tbody className='font-medium text-gray-600'>
