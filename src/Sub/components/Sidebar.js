@@ -131,7 +131,7 @@ function Sidebar({
               </li>
               {/* Customers */}
               <li className={`px-3 py-2 rounded-sm mb-0.5 last:mb-0 ${pathname === '/admin/customer' && 'bg-gray-900'}`}>
-                <Link to="/customers" className={`block text-gray-200 hover:text-white truncate transition duration-150 ${pathname.includes('customer') && 'hover:text-gray-200'}`}>
+                <Link to="/customers" className={`block text-gray-200 hover:text-white truncate transition duration-150 ${pathname.includes('customers') && 'hover:text-gray-200'}`}>
                   <div className="flex items-center">
                     <svg className="shrink-0 h-6 w-6" viewBox="0 0 24 24">
                       <path className={`fill-current text-gray-600 ${pathname === '/admin/customer' && 'text-indigo-500'}`} d="M20 7a.75.75 0 01-.75-.75 1.5 1.5 0 00-1.5-1.5.75.75 0 110-1.5 1.5 1.5 0 001.5-1.5.75.75 0 111.5 0 1.5 1.5 0 001.5 1.5.75.75 0 110 1.5 1.5 1.5 0 00-1.5 1.5A.75.75 0 0120 7zM4 23a.75.75 0 01-.75-.75 1.5 1.5 0 00-1.5-1.5.75.75 0 110-1.5 1.5 1.5 0 001.5-1.5.75.75 0 111.5 0 1.5 1.5 0 001.5 1.5.75.75 0 110 1.5 1.5 1.5 0 00-1.5 1.5A.75.75 0 014 23z" />
