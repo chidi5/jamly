@@ -83,7 +83,7 @@ function HomeScreen() {
                         {/* Right: Actions */}
                         <div className="grid grid-flow-col sm:auto-cols-max justify-end gap-2">
                             {/* Add view button */}
-                            <button className="btn bg-indigo-500 hover:bg-indigo-600 text-white" onClick={goToStoreFront}>
+                            <button className="btn bg-indigo-500 hover:bg-indigo-600 text-white" target='_blank' onClick={goToStoreFront}>
                                 <span className="xs:block ml-2 mr-2">Storefront</span>
                                 <ArrowNarrowRightIcon className='w-5 h-5 fill-current opacity-50 shrink-0'/>
                             </button>
