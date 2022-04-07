@@ -4,6 +4,7 @@ import HomePage from '../screens/HomePage'
 import StoreHeader from './StoreHeader'
 import StoreSidebar from './StoreSidebar'
 import ProductScreen from '../screens/ProductScreen'
+import ProductCategory from '../screens/ProductCategory'
 
 function PublicLayout({subDomain}) {
     const [navbarOpen, setNavbarOpen] = useState(false);
@@ -20,6 +21,7 @@ function PublicLayout({subDomain}) {
 
                 <Routes>
                     <Route path="/" element={<HomePage subDomain={subDomain} />} exact />
+                    <Route path="/:id" element={<ProductCategory />} />
                     <Route path='/product/:id' element={<ProductScreen subDomain={subDomain} />} />
                 </Routes>
 
