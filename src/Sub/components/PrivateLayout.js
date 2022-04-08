@@ -1,9 +1,6 @@
 import React, { useState } from 'react'
 import { Route, Routes, useLocation } from 'react-router-dom'
-import HomePage from '../screens/HomePage'
 import HomeScreen from '../screens/HomeScreen'
-import StoreHeader from './StoreHeader'
-import StoreSidebar from './StoreSidebar'
 import Sidebar from './Sidebar'
 import Header from './Header'
 import AccountSetup from '../screens/AccountSetup'
@@ -12,7 +9,6 @@ import ProductList from '../screens/ProductList'
 import ProductEdit from '../screens/ProductEdit'
 import OrderScreen from '../screens/OrderScreen'
 import CategoryListScreen from '../screens/CategoryListScreen'
-import ProductScreen from '../screens/ProductScreen'
 import CustomerListScreen from '../screens/CustomerListScreen'
 
 function PrivateLayout() {
@@ -23,11 +19,11 @@ function PrivateLayout() {
 
         <div className="flex h-screen overflow-hidden">
             {/* Sidebar */}
-            {pathname != '/admin/account-setup' && <Sidebar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />}
+            {pathname !== '/admin/account-setup' && <Sidebar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />}
 
             <div className="relative flex flex-col flex-1 overflow-y-auto overflow-x-hidden">
                 {/*  Site header */}
-                {pathname != '/admin/account-setup' && <Header sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />}
+                {pathname !== '/admin/account-setup' && <Header sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />}
                 
                 <Routes>
                     <Route path="/admin">
