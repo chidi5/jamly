@@ -29,7 +29,6 @@ function StoreHeader({
         dispatch(loadStore(subDomain))
 
         if({ type: STORE_SUCCESS }) {
-            console.log(store.store_data._id)
             if(store){
                 const id = store.store_data._id
                 console.log(id)
