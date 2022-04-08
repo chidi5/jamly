@@ -25,8 +25,8 @@ function ProductCategory() {
             requestedCat = store.store_categories.find((item) => item.name === id);
             console.log(requestedCat)
             if(requestedCat){
-                const storeId = requestedCat._id
-                const catId = requestedCat.store
+                const storeId = requestedCat.store
+                const catId = requestedCat._id
                 dispatch(listCategoryDetails(storeId, catId))
             }
         }
