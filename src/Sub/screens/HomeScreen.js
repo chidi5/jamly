@@ -152,7 +152,7 @@ function HomeScreen() {
                                         <div className="text-sm font-semibold text-white px-1.5 bg-green-500 rounded-full">+49%</div>
                                     </div>
                                 </div>
-                                <div className="text-3xl font-medium leading-8 mt-6 text-gray-800">200</div>
+                                <div className="text-3xl font-medium leading-8 mt-6 text-gray-800">{admin.num_customers}</div>
                                 <div className="text-base text-gray-600 mt-1">Unique Customers</div>
                             </div>
                         </div>
