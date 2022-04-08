@@ -12,11 +12,15 @@ function ProductCategory() {
     return (
         <ScreenContainer>
             <div>ProductCategory {id}</div>
+            {store && 
+            <>
             {store.store_categories.map(item => (
                 <>
                     {item.name === id && <div> {item._id} </div>}
                 </>
             ))}
+            </>
+            }
         </ScreenContainer>
     )
 }
