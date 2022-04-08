@@ -13,7 +13,7 @@ import { listAdmin } from '../../actions/admin'
 import Cookies from 'js-cookie'
 import Message from '../../Home/components/Message'
 import Loader from '../components/Loader'
-import { ArrowLeftIcon, ArrowNarrowRightIcon, XIcon } from '@heroicons/react/outline'
+import { ArrowNarrowRightIcon } from '@heroicons/react/outline'
 
 function HomeScreen() {
 
@@ -63,7 +63,7 @@ function HomeScreen() {
             //window.location.reload();
         }
 
-    }, [dispatch, userInfo, isComplete])
+    }, [dispatch, userInfo, isComplete, isLogout])
 
     const goToStoreFront = () => {
         window.open('/', '_blank')
