@@ -17,7 +17,7 @@ function PublicLayout({subDomain}) {
 
             <div className="relative flex flex-col flex-1 overflow-y-auto overflow-x-hidden">
                 {/*  Site header */}
-                <StoreHeader navbarOpen={navbarOpen} setNavbarOpen={setNavbarOpen} />
+                <StoreHeader navbarOpen={navbarOpen} setNavbarOpen={setNavbarOpen} subDomain={subDomain} />
 
                 <Routes>
                     <Route path="/" element={<HomePage subDomain={subDomain} />} exact />

@@ -8,10 +8,12 @@ import Cart from '../partials/header/Cart'
 import Search from '../partials/header/Search'
 import UserMenu from '../partials/header/UserMenu'
 import { STORE_SUCCESS } from '../../actions/types'
+import { loadStore } from '../../actions/storefront'
 
 function StoreHeader({
     navbarOpen,
-    setNavbarOpen
+    setNavbarOpen,
+    subDomain
   }) {
 
     const dispatch = useDispatch()
@@ -24,7 +26,10 @@ function StoreHeader({
     const { store } = storeFront
     
     useEffect(() => {
+        dispatch(loadStore(subDomain))
+
         if({ type: STORE_SUCCESS }) {
+            console.log(store.store_data._id)
             if(store){
                 const id = store.store_data._id
                 console.log(id)
