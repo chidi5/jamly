@@ -26,10 +26,17 @@ function StoreHeader({
     const { store } = storeFront
     
     useEffect(() => {
-        dispatch(loadStore(subDomain))
+        
+        if(!store){
+            dispatch(loadStore(subDomain))
+        }
 
         if({ type: STORE_SUCCESS }) {
-            
+            if(store){
+                const id = store.store_data._id
+                console.log(id)
+                dispatch(listCategory(id))
+            }
         }
 
 
