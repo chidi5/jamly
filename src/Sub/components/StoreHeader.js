@@ -27,13 +27,10 @@ function StoreHeader({
     
     useEffect(() => {
         dispatch(loadStore(subDomain))
-
-        if({ type: STORE_SUCCESS }) {
-            if(store){
-                const id = store.store_data._id
-                console.log(id)
-                dispatch(listCategory(id))
-            }
+        if(store){
+            const id = store.store_data._id
+            console.log(id)
+            dispatch(listCategory(id))
         }
 
 
