@@ -31,7 +31,7 @@ function ProductCategory() {
             }
         }
 
-    }, [dispatch, store])
+    }, [dispatch, store, id])
 
     return (
         <ScreenContainer>
@@ -39,7 +39,7 @@ function ProductCategory() {
                 ? (<Loader />)
                 : error
                     ? (<Message variant='red'>{error}</Message>)
-                    :(
+                    :category && (
                         <>
                         <h1 className='text-gray-800 font-medium text-lg mt-10 mb-4 leading-4'>{id}</h1>
                         <div className="grid grid-cols-12 gap-4">
