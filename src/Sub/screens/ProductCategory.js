@@ -12,7 +12,7 @@ function ProductCategory() {
 
     if (store) {
         const requestedUser = store.store_categories.map(item => {
-            return item.find((_id) => item.name === id);
+            return (item.find((item) => item.name === id));
         })
         console.log(requestedUser)
     }
