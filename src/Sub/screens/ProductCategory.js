@@ -8,6 +8,14 @@ function ProductCategory() {
     
     const storeFront = useSelector(state => state.storeFront)
     const { store } = storeFront
+    
+
+    if (store) {
+        const requestedUser = store.store_categories.map(item => {
+            return item.find((_id) => item.name === id);
+        })
+        console.log(requestedUser)
+    }
 
     return (
         <ScreenContainer>
