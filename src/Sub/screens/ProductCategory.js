@@ -16,22 +16,22 @@ function ProductCategory() {
 
     const categoryDetails = useSelector(state => state.categoryDetails)
     const { error, loading, category } = categoryDetails
-    
-    let requestedCat
 
-    if (store) {
-        requestedCat = store.store_categories.find((item) => item.name === id);
-        console.log(requestedCat)
-    }
 
     useEffect(() => {
+        let requestedCat
+
+        if (store) {
+            requestedCat = store.store_categories.find((item) => item.name === id);
+            console.log(requestedCat)
+        }
         if(requestedCat){
             const storeId = requestedCat._id
             const catId = requestedCat.store
             dispatch(listCategoryDetails(storeId, catId))
         }
 
-    }, [dispatch, requestedCat])
+    }, [dispatch, store])
 
     return (
         <ScreenContainer>
