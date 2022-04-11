@@ -89,7 +89,7 @@ function UserMenu() {
                     <li>
                         <Link
                             className="font-medium text-sm text-indigo-500 hover:text-indigo-600 flex items-center py-1 px-3"
-                            to="/admin/?logout=true"
+                            to="/admin?logout=true"
                             onClick={() => {logoutHandler(); setDropdownOpen(!dropdownOpen)}}
                         >
                             Sign Out
