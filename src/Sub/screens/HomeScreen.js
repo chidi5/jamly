@@ -39,22 +39,17 @@ function HomeScreen() {
     }, [])
     
     useEffect(() => {
-        if(isComplete) {
+        if(isLogout) {
+            window.location.assign(`${window.location.protocol}//joshuaigbokwe.shop?isLogout=true`)
+        }
+        if ((userInfo && userInfo.user_details.is_merchant && userInfo.user_details.profile_complete) || isComplete) {
             const userId = userInfo.user_details.id
-            console.log(userId)
+            //console.log(userId + ' else')
             dispatch(listAdmin(userId))
-        }else if (userInfo && userInfo.user_details.is_merchant && userInfo.user_details.profile_complete) {
-            const userId = userInfo.user_details.id
-            console.log(userId + ' else')
-            dispatch(listAdmin(userId))
-            console.log('good to go')
+            //console.log('good to go')
         } else {
             //navigate('/admin/account-setup')
-            {isLogout ?
-                window.location.assign(`${window.location.protocol}//joshuaigbokwe.shop?isLogout=true`)
-                :
-                window.location.assign(`${window.location.protocol}//joshuaigbokwe.shop/store_login`)
-            }
+            window.location.assign(`${window.location.protocol}//joshuaigbokwe.shop/store_login`)
             //window.location.assign(`${window.location.protocol}//localhost.me:3000/store_login`)
             //console.log(`${window.location.protocol}//localhost.me:3000/store_login`)
             //window.location.reload();
@@ -158,7 +153,7 @@ function HomeScreen() {
                         <SaleReport />
 
                         {/* Top Selling Product */}
-                        <TopSeller />
+                        <TopSeller top={admin.top_orders} />
 
                         {/* Stock Report */}
                         <StockReport />

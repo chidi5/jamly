@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 import Boot from '../../../static/images/boot.jpg';
 
-function TopSeller() {
+function TopSeller({top}) {
     return (
         <div className="col-span-12 xl:col-span-4">
             <div className="flex items-center h-10">
