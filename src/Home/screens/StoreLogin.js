@@ -22,9 +22,6 @@ function StoreLogin({
     const dispatch = useDispatch()
     const { pathname, search } = useLocation()
 
-    const isLogOutUrl = new URLSearchParams(search).get("isLogout")
-    const isLogout = isLogOutUrl ? isLogOutUrl : null
-
     const userRegister = useSelector(state => state.userRegister)
     const { error } = userRegister
 
@@ -35,10 +32,6 @@ function StoreLogin({
 
     useEffect(() => {
 
-        if (isLogout) {
-            dispatch(logout())
-        }
-        
         if (userInfo) {
             //console.log(isComplete)
             if (userInfo.user_details.profile_complete) {

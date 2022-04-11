@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
 import { useLocation } from 'react-router'
 import { useDispatch, useSelector } from 'react-redux'
 import LatestOrder from '../partials/dashboard/LatestOrder'
@@ -19,8 +18,6 @@ function HomeScreen() {
 
     const dispatch = useDispatch()
     const { search } = useLocation()
-    const navigate = useNavigate()
-
     //const isCompUrl = new URLSearchParams(search).get("profile")
     //const isComp = isCompUrl ? isCompUrl : null
 
@@ -54,7 +51,7 @@ function HomeScreen() {
         } else {
             //navigate('/admin/account-setup')
             {isLogout ?
-                window.location.assign(`${window.location.protocol}//joshuaigbokwe.shop/store_login/?isLogout=true`)
+                window.location.assign(`${window.location.protocol}//joshuaigbokwe.shop?isLogout=true`)
                 :
                 window.location.assign(`${window.location.protocol}//joshuaigbokwe.shop/store_login`)
             }

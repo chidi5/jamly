@@ -31,10 +31,15 @@ function ProductCategory() {
             }
         }
 
+        document.body.style.backgroundColor= '#ffffff'
+        return() => {
+            document.body.style.backgroundColor= '#f1f5f9'
+        }
+
     }, [dispatch, store, id])
 
     return (
-        <ScreenContainer>
+        <ScreenContainer className='font-loader'>
             {loading
                 ? (<Loader />)
                 : error
