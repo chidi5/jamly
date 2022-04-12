@@ -44,11 +44,13 @@ function HomeScreen() {
             //console.log(userId + ' else')
             dispatch(listAdmin(userId))
             //console.log('good to go')
-        }else if(isLogout) {
-            window.location.assign(`${window.location.protocol}//joshuaigbokwe.shop?isLogout=true`)
         }else {
+            if(isLogout) {
+                window.location.assign(`${window.location.protocol}//joshuaigbokwe.shop?isLogout=true`)
+            }else{
+                window.location.assign(`${window.location.protocol}//joshuaigbokwe.shop/store_login`)
+            }
             //navigate('/admin/account-setup')
-            window.location.assign(`${window.location.protocol}//joshuaigbokwe.shop/store_login`)
             //window.location.assign(`${window.location.protocol}//localhost.me:3000/store_login`)
             //console.log(`${window.location.protocol}//localhost.me:3000/store_login`)
             //window.location.reload();
