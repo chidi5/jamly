@@ -1,8 +1,10 @@
 /* This example requires Tailwind CSS v2.0+ */
 import { Fragment } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { Menu, Transition } from '@headlessui/react'
 import { ChevronDownIcon } from '@heroicons/react/solid'
 import { Link, useLocation } from 'react-router-dom'
+import { deleteProduct } from '../../actions/product'
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
@@ -10,8 +12,19 @@ function classNames(...classes) {
 
 export default function ActionDropdown({item, open, setOpen}) {
 
+  const dispatch = useDispatch();
   const location = useLocation();
   const { pathname } = location;
+
+  const productDelete = useSelector(state => state.productDelete)
+  const { loading: loadingDelete, error: errorDelete, success: successDelete } = productDelete
+
+  const deleteHandler = (store, id) => {
+
+    if (window.confirm('Are you sure you want to delete this product?')) {
+        dispatch(deleteProduct(store, id))
+    }
+}
 
   return (
     <Menu as="div" className="relative inline-block">
@@ -50,15 +63,15 @@ export default function ActionDropdown({item, open, setOpen}) {
                 </Menu.Item>
                 <Menu.Item>
                   {({ active }) => (
-                    <a
-                      href="#"
+                    <button
                       className={classNames(
                         active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                        'block px-4 py-2 text-sm'
+                        'block px-4 py-2 text-sm border-0 focus:border-0 focus:outline-none'
                       )}
+                      onClick={() => deleteHandler(item.store_id, item._id)}
                     >
                       Delete
-                    </a>
+                    </button>
                   )}
                 </Menu.Item>
               </Fragment>
