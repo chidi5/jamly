@@ -3,7 +3,7 @@ import { Link, useLocation } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import Background from '../../static/images/background.svg'
 import Message from '../components/Message'
-import { logout, register } from '../../actions/user'
+import { register } from '../../actions/user'
 import { login } from '../../actions/user'
 
 
@@ -20,7 +20,7 @@ function StoreLogin({
     const [message, setMessage] = useState('')
 
     const dispatch = useDispatch()
-    const { pathname, search } = useLocation()
+    const { pathname } = useLocation()
 
     const userRegister = useSelector(state => state.userRegister)
     const { error } = userRegister

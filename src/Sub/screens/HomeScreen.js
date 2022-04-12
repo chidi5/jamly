@@ -39,15 +39,14 @@ function HomeScreen() {
     }, [])
     
     useEffect(() => {
-        if(isLogout) {
-            window.location.assign(`${window.location.protocol}//joshuaigbokwe.shop?isLogout=true`)
-        }
         if ((userInfo && userInfo.user_details.is_merchant && userInfo.user_details.profile_complete) || isComplete) {
             const userId = userInfo.user_details.id
             //console.log(userId + ' else')
             dispatch(listAdmin(userId))
             //console.log('good to go')
-        } else {
+        }else if(isLogout) {
+            window.location.assign(`${window.location.protocol}//joshuaigbokwe.shop?isLogout=true`)
+        }else {
             //navigate('/admin/account-setup')
             window.location.assign(`${window.location.protocol}//joshuaigbokwe.shop/store_login`)
             //window.location.assign(`${window.location.protocol}//localhost.me:3000/store_login`)

@@ -21,7 +21,7 @@ function Landing() {
             dispatch(logout())
         }
 
-    }, [isLogout]); // triggered on route change
+    }, [dispatch, isLogout]); // triggered on route change
 
     const getStarted = () => {
         navigate('/get_started')
