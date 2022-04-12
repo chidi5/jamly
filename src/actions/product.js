@@ -105,13 +105,14 @@ export const deleteProduct = (store, id) => async (dispatch) => {
             }
         }
 
-        const { data } = await axios.delete(
+        const { data } = await axios.get(
             `https://jamly2021.herokuapp.com/api/deleteproduct/${store}/${id}`,
             config
         )
 
         dispatch({
             type: PRODUCT_DELETE_SUCCESS,
+            payload: data
         })
 
 
