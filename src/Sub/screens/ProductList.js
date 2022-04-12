@@ -19,6 +19,8 @@ function ProductList() {
     const productCreate = useSelector(state => state.productCreate)
     const { loading: loadingCreate, error: errorCreate, success: successCreate, product: createdProduct } = productCreate
 
+    const productDelete = useSelector(state => state.productDelete)
+    const { loading: loadingDelete, error: errorDelete, success: successDelete } = productDelete
 
     const userLogin = useSelector(state => state.userLogin)
     const { userInfo } = userLogin
@@ -40,7 +42,7 @@ function ProductList() {
             dispatch(listProducts(id))
         }
 
-    }, [dispatch, navigate, userInfo, successCreate, createdProduct])
+    }, [dispatch, navigate, userInfo, successCreate, successDelete, createdProduct])
 
     const createProductHandler = () => {
         dispatch(createProduct(45))

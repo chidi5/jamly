@@ -16,9 +16,6 @@ export default function ActionDropdown({item, open, setOpen}) {
   const location = useLocation();
   const { pathname } = location;
 
-  const productDelete = useSelector(state => state.productDelete)
-  const { loading: loadingDelete, error: errorDelete, success: successDelete } = productDelete
-
   const deleteHandler = (store, id) => {
 
     if (window.confirm('Are you sure you want to delete this product?')) {
