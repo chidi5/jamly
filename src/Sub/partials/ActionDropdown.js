@@ -63,7 +63,8 @@ export default function ActionDropdown({item, open, setOpen}) {
                 </Menu.Item>
                 <Menu.Item>
                   {({ active }) => (
-                    <a
+                    <Link
+                      to="#"
                       className={classNames(
                         active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
                         'block px-4 py-2 text-sm border-0 focus:border-0 focus:outline-none'
@@ -71,7 +72,7 @@ export default function ActionDropdown({item, open, setOpen}) {
                       onClick={() => deleteHandler(item.store_id, item._id)}
                     >
                       Delete
-                    </a>
+                    </Link>
                   )}
                 </Menu.Item>
               </Fragment>
