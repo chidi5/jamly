@@ -73,7 +73,9 @@ function LatestOrder({orders}) {
             <div className="px-5 py-4 border-t border-gray-100 justify-end">
                 <Link to="/admin/order" className="font-semibold text-indigo-500 hover:text-indigo-600 justify-end">
                     view
-                    <ArrowNarrowRightIcon className='w-5 h-5 fill-current opacity-50 shrink-0'/>
+                    <span>
+                        <ArrowNarrowRightIcon className='w-5 h-5 fill-current opacity-50 shrink-0'/>
+                    </span>
                 </Link>
             </div>
         </div>
