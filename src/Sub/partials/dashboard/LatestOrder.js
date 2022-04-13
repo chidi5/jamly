@@ -1,3 +1,4 @@
+import { ArrowNarrowRightIcon, ArrowRightIcon } from '@heroicons/react/solid';
 import React from 'react'
 
 function LatestOrder({orders}) {
@@ -68,6 +69,11 @@ function LatestOrder({orders}) {
                     </table>
                 </div>
     
+            </div>
+            <div className="px-5 py-4 border-t border-gray-100">
+                <a href="#" className="font-semibold text-gray-800">view
+                    <ArrowNarrowRightIcon />
+                </a>
             </div>
         </div>
     );

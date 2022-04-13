@@ -160,7 +160,7 @@ function HomeScreen() {
                         <StockReport />
 
                         {/* Product Order */}
-                        <LatestOrder order={admin.open_orders} />
+                        <LatestOrder orders={admin.open_orders} />
 
                     </div>
                 </div>)
