@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Menu, Transition } from '@headlessui/react'
 import { ChevronDownIcon } from '@heroicons/react/solid'
 import { Link, useLocation } from 'react-router-dom'
-import { deleteProduct } from '../../actions/product'
+import { deleteCategory, deleteProduct } from '../../actions/product'
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
@@ -21,7 +21,14 @@ export default function ActionDropdown({item, open, setOpen}) {
     if (window.confirm('Are you sure you want to delete this product?')) {
         dispatch(deleteProduct(store, id))
     }
-}
+  }
+
+  const deleteCat = (store, id) => {
+
+    if (window.confirm('Are you sure you want to delete this product?')) {
+        dispatch(deleteCategory(store, id))
+    }
+  }
 
   return (
     <Menu as="div" className="relative inline-block">
@@ -93,15 +100,16 @@ export default function ActionDropdown({item, open, setOpen}) {
                 </Menu.Item>
                 <Menu.Item>
                   {({ active }) => (
-                    <a
-                      href="#"
+                    <Link
+                      to="#"
                       className={classNames(
                         active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
                         'block px-4 py-2 text-sm'
                       )}
+                      onClick={() => deleteCat(item.store, item._id)}
                     >
                       Delete
-                    </a>
+                    </Link>
                   )}
                 </Menu.Item>
               </Fragment>

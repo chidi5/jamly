@@ -14,6 +14,7 @@ import {
     categoryListReducer,
     categoryDetailsReducer,
     categoryCreateReducer,
+    categoryDeleteReducer,
     categoryUpdateReducer
 } from './product'
 import { storeFrontReducer } from './storefront'
@@ -44,6 +45,7 @@ export default combineReducers({
     categoryList: categoryListReducer,
     categoryDetails: categoryDetailsReducer,
     categoryCreate: categoryCreateReducer,
+    categoryDelete: categoryDeleteReducer,
     categoryUpdate: categoryUpdateReducer,
     storeFront: storeFrontReducer,
 });

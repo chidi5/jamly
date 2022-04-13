@@ -22,6 +22,9 @@ function CategoryListScreen() {
   const categoryUpdate = useSelector(state => state.categoryUpdate)
   const { error: errorUpdate, loading: loadingUpdate, success: successUpdate } = categoryUpdate
 
+  const categoryDelete = useSelector(state => state.categoryDelete)
+    const { loading: loadingDelete, error: errorDelete, success: successDelete } = categoryDelete
+
   const userLogin = useSelector(state => state.userLogin)
   const { userInfo } = userLogin
 
@@ -38,7 +41,7 @@ function CategoryListScreen() {
       alert("Category created succesfully!")
     }
 
-  }, [userInfo, successCreate])
+  }, [userInfo, successCreate, successDelete])
 
 
   const createCategory = () => {
