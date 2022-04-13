@@ -1,45 +1,6 @@
 import React from 'react'
 
-function LatestOrder() {
-    const orders = [
-        {
-          id: '0',
-          order_id: "XGT-345",
-          created: 'an hour ago',
-          customer: 'Alex Shatov',
-          total: '$2,890',
-        },
-        {
-            id: '1',
-            order_id: "XGT-345",
-            created: 'an hour ago',
-            customer: 'Mama Mia',
-            total: '$10,000',
-        },
-        {
-            id: '2',
-            order_id: "XGT-321",
-            created: '2 hours ago',
-            customer: 'Emeka Kuna',
-            total: '$5,800',
-        },
-        {
-            id: '3',
-            order_id: "XGT-354",
-            created: '5 hours ago',
-            customer: 'Emma Croft',
-            total: '$8,000',
-        },
-        {
-            id: '4',
-            order_id: "XGT-365",
-            created: 'a day ago',
-            customer: 'Aj Mama',
-            total: 'N2,500',
-        },
-
-        
-    ];
+function LatestOrder({orders}) {
     
     return (
         <div className="col-span-full xl:col-span-8 bg-white shadow-lg rounded-sm border border-gray-200">
@@ -55,16 +16,19 @@ function LatestOrder() {
                         <thead className="text-xs font-semibold uppercase text-gray-400 bg-gray-50">
                         <tr>
                             <th className="p-2 whitespace-nowrap">
-                            <div className="font-semibold text-left">Order ID</div>
+                                <div className="font-semibold text-left">Order ID</div>
                             </th>
                             <th className="p-2 whitespace-nowrap">
-                            <div className="font-semibold text-left">Created</div>
+                                <div className="font-semibold text-left">Created</div>
                             </th>
                             <th className="p-2 whitespace-nowrap">
-                            <div className="font-semibold text-left">Customer</div>
+                                <div className="font-semibold text-left">Customer</div>
                             </th>
                             <th className="p-2 whitespace-nowrap">
-                            <div className="font-semibold text-center">Total</div>
+                                <div className="font-semibold text-left">Status</div>
+                            </th>
+                            <th className="p-2 whitespace-nowrap">
+                                <div className="font-semibold text-center">Total</div>
                             </th>
                         </tr>
                         </thead>
@@ -73,21 +37,29 @@ function LatestOrder() {
                         {
                             orders.map(order => {
                             return (
-                                <tr key={order.id}>
-                                <td className="p-2 whitespace-nowrap">
-                                    <div className="flex items-center">
-                                    <div className="font-medium text-gray-800">{order.order_id}</div>
-                                    </div>
-                                </td>
-                                <td className="p-2 whitespace-nowrap">
-                                    <div className="text-left">{order.created}</div>
-                                </td>
-                                <td className="p-2 whitespace-nowrap">
-                                    <div className="text-left font-medium text-green-500">{order.customer}</div>
-                                </td>
-                                <td className="p-2 whitespace-nowrap">
-                                    <div className="text-center">{order.total}</div>
-                                </td>
+                                <tr key={order._id}>
+                                    <td className="p-2 whitespace-nowrap">
+                                        <div className="flex items-center">
+                                        <div className="font-medium text-gray-800">{order._id}</div>
+                                        </div>
+                                    </td>
+                                    <td className="p-2 whitespace-nowrap">
+                                        <div className="text-left">{order.created_at.substring(0, 10)}</div>
+                                    </td>
+                                    <td className="p-2 whitespace-nowrap">
+                                        <div className="text-left font-medium text-green-500">{`${order.first_name} ${order.last_name}`}</div>
+                                    </td>
+                                    { order.is_paid ?
+                                        <td className="p-2 whitespace-nowrap">
+                                            <div className="text-left font-medium text-green-500">Paid</div>
+                                        </td>:
+                                        <td className="p-2 whitespace-nowrap">
+                                            <div className="text-left font-medium text-orange-500">Pending</div>
+                                        </td>
+                                    }
+                                    <td className="p-2 whitespace-nowrap">
+                                        <div className="text-center">{order.total_price}</div>
+                                    </td>
                                 </tr>
                             )
                             })
