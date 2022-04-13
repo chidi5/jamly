@@ -1,5 +1,6 @@
 import { ArrowNarrowRightIcon, ArrowRightIcon } from '@heroicons/react/solid';
 import React from 'react'
+import { Link } from 'react-router-dom';
 
 function LatestOrder({orders}) {
     
